@@ -127,14 +127,14 @@
       <div class="skill-card-num">02</div>
       <h3>AI / ML</h3>
       <div class="tags">
-        <span class="tag">LLMs</span><span class="tag">RAG Pipelines</span><span class="tag">CUDA</span><span class="tag">Hugging Face</span><span class="tag">LoRA / PEFT</span><span class="tag">Whisper ASR</span><span class="tag">HyperDB</span><span class="tag">Crawl4AI</span>
+        <span class="tag">PyTorch</span><span class="tag">LLMs</span><span class="tag">RAG Pipelines</span><span class="tag">Reinforcement Learning</span><span class="tag">Behavior Cloning</span><span class="tag">CUDA</span><span class="tag">Hugging Face</span><span class="tag">LoRA / PEFT</span><span class="tag">Whisper ASR</span><span class="tag">HyperDB</span><span class="tag">Crawl4AI</span>
       </div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-card-num">03</div>
       <h3>Tools & Systems</h3>
       <div class="tags">
-        <span class="tag">TCP/IP</span><span class="tag">Modbus</span><span class="tag">Tkinter</span><span class="tag">Discord API</span><span class="tag">Unity</span><span class="tag">Unreal Engine</span><span class="tag">Web Scraping</span><span class="tag">MS Office</span>
+        <span class="tag">TCP/IP</span><span class="tag">WebSockets</span><span class="tag">Playwright</span><span class="tag">Modbus</span><span class="tag">Tkinter</span><span class="tag">Discord API</span><span class="tag">Unity</span><span class="tag">Unreal Engine</span><span class="tag">Web Scraping</span><span class="tag">MS Office</span>
       </div>
     </div>
   </div>
@@ -201,16 +201,21 @@
   <div class="proj-grid">
     <div class="proj-card reveal">
       <div class="proj-n">01</div>
+      <div class="proj-name">AI Pokémon Showdown Battler</div>
+      <p class="proj-desc">Game-playing AI trained with imitation learning (behavior cloning) on tens of thousands of real match replays. Built the full ML pipeline — data collection, parsing, feature engineering, a ~5,000-feature state representation, and an attention-based neural network in PyTorch — plus self-play reinforcement learning (PPO) and probabilistic opponent modeling for decisions under uncertainty. Deployed to compete in live online ranked matches via browser automation (Playwright/WebSockets), with a web dashboard for training, evaluation, and deployment.</p>
+    </div>
+    <div class="proj-card reveal">
+      <div class="proj-n">02</div>
       <div class="proj-name">AI Assistant</div>
       <p class="proj-desc">Local AI assistant in Python via Discord. Integrated OpenAI Whisper for speech recognition, long-term memory via HyperDB, and Crawl4AI for web scraping. Deep hands-on with CUDA and RAG techniques.</p>
     </div>
     <div class="proj-card reveal">
-      <div class="proj-n">02</div>
+      <div class="proj-n">03</div>
       <div class="proj-name">Rexa Modbus TCP/IP Tool</div>
       <p class="proj-desc">Production-grade communication software for Rexa actuator systems using Modbus protocol. Read/write of register values across integers, floats, epochs, binary, and ASCII. Now used on the factory floor.</p>
     </div>
     <div class="proj-card reveal">
-      <div class="proj-n">03</div>
+      <div class="proj-n">04</div>
       <div class="proj-name">LoRA Fine-Tuning BERT 2.5</div>
       <p class="proj-desc">Training pipeline for a small language model using Hugging Face Transformers in low-resource environments. Deep experience with transformer internals, PEFT, and inference benchmarking.</p>
     </div>
