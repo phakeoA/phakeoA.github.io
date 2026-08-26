@@ -132,6 +132,8 @@ body::after { content:'';position:fixed;inset:0;background-image:url("data:image
 .proj-card:hover::before { transform:scaleX(1); }
 .proj-n { font-family:'Bebas Neue',sans-serif;font-size:4rem;line-height:1;color:rgba(232,0,28,.1); }
 .proj-name { font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:.1em;color:var(--white);margin:.3rem 0 .8rem; }
+.proj-link { display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.2em;color:var(--red);border:1px solid var(--red);padding:.25rem .8rem;margin-bottom:.9rem;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,0 100%);transition:background .2s,color .2s; }
+.proj-link:hover { background:var(--red);color:var(--white); }
 .proj-desc { font-size:.83rem;color:#777;line-height:1.7; }
 
 /* ===================== CONTACT ===================== */
