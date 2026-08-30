@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open MDB &amp; ACCDB Files Without Access — Free for Chrome</title>
+<meta name="description" content="Open, browse, search and export Microsoft Access .mdb and .accdb databases right in Chrome. 100% local — no upload, no account, no network access at all.">
+<link rel="canonical" href="https://phakeoa.github.io/accesslens/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3f6b47">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Open MDB &amp; ACCDB Files Without Microsoft Access">
+<meta property="og:description" content="A Chrome extension that opens Microsoft Access databases entirely on your own machine. No upload, no account, no network access.">
+<meta property="og:url" content="https://phakeoa.github.io/accesslens/">
+<meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="assets/icon128.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AccessLens — Access Database Viewer",
+  "operatingSystem": "Chrome",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "Open, browse, search and export Microsoft Access .mdb and .accdb database files locally in Chrome, with no upload and no network access.",
+  "url": "https://phakeoa.github.io/accesslens/",
+  "downloadUrl": "https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I open an .mdb file without Microsoft Access?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Install AccessLens in Chrome, click the toolbar icon, and pick your .mdb or .accdb file. It opens in a browser tab where you can browse every table, search, and export to CSV. Microsoft Access does not need to be installed." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my database get uploaded anywhere?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. AccessLens requests no permissions at all — no network permission, no host permissions, no storage. It has no technical means of sending your file anywhere. You can confirm this yourself: the permissions list on the Chrome Web Store listing is empty." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Viewing, searching and CSV export are free, with no account and no sign-up." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Access versions are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Access 97, 2000 and 2002/2003 in the .mdb format, and Access 2007 through 2019 in the .accdb format." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it open password-protected or encrypted Access files?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Access 2010 RC4 and Office Agile encryption are supported. You are prompted for the password, which is used locally and never stored." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work offline?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely. Because it has no network permission, it works identically with your connection switched off." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I edit the database?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. AccessLens is read-only by design. It views and exports data, and never modifies your file." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f5f7f4; --bg-card:#ffffff;
+  --fg:#161a17; --fg-soft:#4d574f; --fg-faint:#6d7970;
+  --line:#dfe5e0;
+  --accent:#3f6b47; --accent-fg:#ffffff; --accent-soft:#eaf1eb;
+  --warn-bg:#fff8e8; --warn-line:#e8d9ae;
+  --radius:12px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#12150f; --bg-soft:#181c15; --bg-card:#1b2019;
+    --fg:#eef2ea; --fg-soft:#b6c0b5; --fg-faint:#8d998c;
+    --line:#2c3429;
+    --accent:#8fc79a; --accent-fg:#10150f; --accent-soft:#1f2a20;
+    --warn-bg:#241f10; --warn-line:#4a4128;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+
+/* header */
+header.site{border-bottom:1px solid var(--line);background:var(--bg)}
+header.site .wrap{display:flex;align-items:center;gap:10px;padding-top:14px;padding-bottom:14px}
+header.site img{width:28px;height:28px;border-radius:6px}
+header.site b{font-size:15px;letter-spacing:.2px}
+header.site .sp{flex:1}
+header.site a.top{font-size:14px;text-decoration:none;color:var(--fg-soft)}
+
+/* hero */
+.hero{padding:56px 0 40px;text-align:center}
+.hero h1{
+  font-size:clamp(28px,5vw,44px); line-height:1.18; margin:0 0 16px;
+  letter-spacing:-.02em; font-weight:700;
+}
+.hero p.lede{font-size:clamp(17px,2.2vw,20px);color:var(--fg-soft);margin:0 auto 28px;max-width:640px}
+.cta{
+  display:inline-block;background:var(--accent);color:var(--accent-fg);
+  text-decoration:none;font-weight:600;font-size:17px;
+  padding:14px 30px;border-radius:var(--radius);
+}
+.cta:hover{filter:brightness(1.08)}
+.cta-sub{display:block;margin-top:12px;font-size:14px;color:var(--fg-faint)}
+
+/* badges */
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:32px 0 0;padding:0;list-style:none}
+.badges li{
+  background:var(--accent-soft);border:1px solid var(--line);border-radius:999px;
+  padding:6px 14px;font-size:13.5px;color:var(--fg-soft);font-weight:500;
+}
+
+/* sections */
+section{padding:44px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(21px,3vw,27px);margin:0 0 8px;letter-spacing:-.01em}
+section p.sub{color:var(--fg-soft);margin:0 0 26px}
+
+/* shots */
+figure.shot{margin:0 0 26px}
+figure.shot img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:var(--radius)}
+figure.shot figcaption{margin-top:9px;font-size:14px;color:var(--fg-faint);text-align:center}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:16.5px}
+.card p{margin:0;color:var(--fg-soft);font-size:15px}
+
+/* callout */
+.callout{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.callout p{margin:0 0 12px}
+.callout p:last-child{margin-bottom:0}
+
+/* limits */
+.limits{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:var(--radius);padding:20px 24px}
+.limits ul{margin:0;padding-left:20px}
+.limits li{margin:7px 0;color:var(--fg-soft)}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:none}
+summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:20px;color:var(--accent);font-weight:700}
+details[open] summary::before{content:"\2212"}
+details p{margin:10px 0 2px 20px;color:var(--fg-soft)}
+
+/* bottom cta */
+.endcta{text-align:center;padding:52px 0}
+
+footer.site{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--fg-faint);font-size:14px}
+footer.site a{color:var(--fg-soft)}
+footer.site p{margin:0 0 6px}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <img src="assets/icon128.png" alt="">
+    <b>AccessLens</b>
+    <span class="sp"></span>
+    <a class="top" href="#faq">FAQ</a>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Open MDB &amp; ACCDB files<br>without Microsoft Access</h1>
+    <p class="lede">
+      Been handed a legacy Access database and you don't have Access? AccessLens opens
+      <code>.mdb</code> and <code>.accdb</code> files right in a Chrome tab — browse every table,
+      search it, export to CSV. Your file never leaves your computer.
+    </p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml">Add to Chrome — free</a>
+    <span class="cta-sub">No account. No sign-up. No upload.</span>
+
+    <ul class="badges">
+      <li>Zero permissions requested</li>
+      <li>Works fully offline</li>
+      <li>Access 97 → 2019</li>
+      <li>Opens encrypted files</li>
+      <li>CSV export</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2>Why not just use an online converter?</h2>
+    <p class="sub">Because most of them want your database on their server.</p>
+    <div class="callout">
+      <p>
+        The usual ways to read an <code>.mdb</code> file in a browser involve uploading it to
+        someone else's site, or granting an extension access to your Google Drive. That's a
+        genuine problem when the file is a client record set, an HR export, or anything else you
+        aren't allowed to hand to a third party.
+      </p>
+      <p>
+        <strong>AccessLens requests no permissions of any kind.</strong> No network permission, no
+        host permissions, no storage, no content scripts. It cannot see your browsing, cannot touch
+        other tabs, and has no technical means of sending your file anywhere — parsing happens
+        inside the tab, on your machine.
+      </p>
+      <p>
+        You don't have to take that on trust. Open the extension's entry on the Chrome Web Store
+        and look at the permissions list: it's empty. Or open your database with your Wi-Fi
+        switched off — it works exactly the same.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it looks like</h2>
+    <p class="sub">Real screenshots, real Access files.</p>
+
+    <figure class="shot">
+      <img src="assets/screen1_browse.png" alt="Browsing a table of 830 rows from a Northwind .mdb database in AccessLens" width="1280" height="800" loading="lazy">
+      <figcaption>Every table in the file, with row and column counts. Large tables scroll smoothly.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="assets/screen2_search.png" alt="Searching across all columns of an Access table" width="1280" height="800" loading="lazy">
+      <figcaption>Instant search across every column of the current table.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="assets/screen3_dark_complex.png" alt="A modern .accdb database shown in dark mode" width="1280" height="800" loading="lazy">
+      <figcaption>Modern <code>.accdb</code> files, dark mode, and honest handling of exotic column types.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>What you get</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Every Access era</h3>
+        <p>Access 97, 2000 and 2002/2003 <code>.mdb</code> files, plus Access 2007–2019 <code>.accdb</code>.</p>
+      </div>
+      <div class="card">
+        <h3>Encrypted databases</h3>
+        <p>Opens password-protected files using Access 2010 RC4 and Office Agile encryption. The password is used locally and never stored.</p>
+      </div>
+      <div class="card">
+        <h3>No artificial size limits</h3>
+        <p>Paged loading and a virtualised table view, so tables with hundreds of thousands of rows stay responsive.</p>
+      </div>
+      <div class="card">
+        <h3>Search any table</h3>
+        <p>Filter instantly across all columns to find the record you're actually looking for.</p>
+      </div>
+      <div class="card">
+        <h3>Export to CSV</h3>
+        <p>Any table, one click, opens cleanly in Excel or Google Sheets. Unicode and quoting handled correctly.</p>
+      </div>
+      <div class="card">
+        <h3>Genuinely offline</h3>
+        <p>Not "offline-capable" — it has no way to be online. Works on an air-gapped machine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Honest limits</h2>
+    <p class="sub">Things it deliberately doesn't do, so you can rule it out fast.</p>
+    <div class="limits">
+      <ul>
+        <li><strong>Read-only.</strong> AccessLens views and exports; it never modifies your file.</li>
+        <li><strong>Tables and data only.</strong> Access forms, reports, macros and VBA aren't shown.</li>
+        <li><strong>Multi-valued and attachment columns</strong> (an Access 2007+ feature) can't be displayed. They appear as clearly-marked placeholders and are skipped in CSV export.</li>
+        <li><strong>Legacy Jet-era passwords</strong> (Access 97–2003) are a formality of that old format. Like Access itself, AccessLens opens those files without needing the password.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked questions</h2>
+    <p class="sub">The things people actually ask before installing.</p>
+
+    <details open>
+      <summary>How do I open an .mdb file without Microsoft Access?</summary>
+      <p>Install AccessLens, click the toolbar icon, and choose your <code>.mdb</code> or <code>.accdb</code> file. It opens in a browser tab where you can browse every table, search it, and export to CSV. Access does not need to be installed, and there's nothing to configure.</p>
+    </details>
+
+    <details>
+      <summary>Does my database get uploaded anywhere?</summary>
+      <p>No. The extension requests no permissions at all, including no network permission, so it has no technical means of sending your file anywhere. The permissions list on its Chrome Web Store listing is empty, and you can verify the behaviour by using it with your connection turned off.</p>
+    </details>
+
+    <details>
+      <summary>Is it free?</summary>
+      <p>Yes. Viewing, searching and CSV export are free, with no account and no sign-up.</p>
+    </details>
+
+    <details>
+      <summary>Which Access versions are supported?</summary>
+      <p>Access 97, 2000 and 2002/2003 in the <code>.mdb</code> format, and Access 2007 through 2019 in the <code>.accdb</code> format.</p>
+    </details>
+
+    <details>
+      <summary>Can it open password-protected or encrypted Access files?</summary>
+      <p>Yes — Access 2010 RC4 and Office Agile encryption are both supported. You'll be prompted for the password, which is used locally and never stored.</p>
+    </details>
+
+    <details>
+      <summary>Can I edit the database?</summary>
+      <p>No, and that's deliberate. AccessLens is strictly read-only, so there is no way for it to corrupt or alter a file you were trusted with.</p>
+    </details>
+
+    <details>
+      <summary>Does it work on Edge, Brave or other Chromium browsers?</summary>
+      <p>It's distributed through the Chrome Web Store, which Edge, Brave and most other Chromium-based browsers can install from. It is only officially tested on Chrome.</p>
+    </details>
+  </section>
+
+  <div class="endcta">
+    <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml">Add to Chrome — free</a>
+    <span class="cta-sub">Zero permissions. Nothing to sign up for.</span>
+  </div>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml">Chrome Web Store</a></p>
+    <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers.</p>
+  </div>
+</footer>
+
+</body>
+</html>

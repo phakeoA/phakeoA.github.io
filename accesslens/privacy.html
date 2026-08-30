@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — AccessLens</title>
+<meta name="description" content="AccessLens collects no data. It requests no permissions, has no network access, and processes Access database files entirely on your own machine.">
+<link rel="canonical" href="https://phakeoa.github.io/accesslens/privacy.html">
+<link rel="icon" type="image/png" href="assets/icon128.png">
+<meta name="theme-color" content="#3f6b47">
+<style>
+:root{--bg:#fff;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#12150f;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:48px 20px 64px}
+a{color:var(--accent)}
+h1{font-size:30px;letter-spacing:-.02em;margin:0 0 6px}
+.updated{color:var(--fg-faint);font-size:14px;margin:0 0 32px}
+h2{font-size:19px;margin:34px 0 8px}
+p{color:var(--fg-soft);margin:0 0 14px}
+ul{color:var(--fg-soft);padding-left:20px}
+li{margin:7px 0}
+.box{border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:24px 0}
+.box p{margin:0}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;font-size:14px;color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Privacy Policy</h1>
+<p class="updated">AccessLens (Chrome extension) · Last updated 30 August 2026</p>
+
+<div class="box">
+  <p><strong>AccessLens collects nothing.</strong> No personal data, no usage data, no analytics,
+  no crash reports, no identifiers. There is no server to collect it with.</p>
+</div>
+
+<h2>What the extension does with your files</h2>
+<p>
+  When you open a <code>.mdb</code> or <code>.accdb</code> file, it is read and parsed entirely
+  inside your own browser tab, on your own machine. The file is never uploaded, copied off your
+  device, or transmitted in any form. When you close the tab, nothing about it is retained.
+</p>
+
+<h2>Why this is verifiable rather than a promise</h2>
+<p>
+  AccessLens declares no permissions in its manifest — no network permission, no host permissions,
+  no storage, no content scripts, no external connectivity of any kind. The extension therefore has
+  no technical means of transmitting data, independent of any assurance given here.
+</p>
+<ul>
+  <li>The permissions list on its Chrome Web Store listing is empty.</li>
+  <li>Its release build is checked automatically for network APIs and remote code; the check fails the build if any are present.</li>
+  <li>The extension behaves identically with your network connection disabled.</li>
+</ul>
+
+<h2>Passwords</h2>
+<p>
+  If you open an encrypted database, you are prompted for its password. That password is used in
+  memory to decrypt the file locally and is never stored, cached, or transmitted.
+</p>
+
+<h2>Third parties</h2>
+<p>
+  There are none. No analytics provider, no error-reporting service, no advertising network, no
+  content delivery network. This website loads no third-party scripts, fonts or trackers either.
+</p>
+
+<h2>Data sharing and sale</h2>
+<p>
+  No data is collected, so none is sold, shared, transferred, or used for any purpose — including
+  advertising, credit assessment, lending, or any purpose unrelated to the extension's single
+  function of viewing Access database files you explicitly open.
+</p>
+
+<h2>Children</h2>
+<p>The extension collects no data from anyone, including children.</p>
+
+<h2>Changes</h2>
+<p>
+  If a future version ever needed a permission, that change would be disclosed on the Chrome Web
+  Store listing before it could be installed, and this page would be updated with the date above.
+</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy can be sent to the developer email listed on the
+  <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml">Chrome Web Store listing</a>.</p>
+
+<footer>
+  <a href="index.html">← Back to AccessLens</a>
+</footer>
+
+</div>
+</body>
+</html>
