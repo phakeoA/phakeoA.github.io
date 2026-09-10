@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open an Access database without admin rights (no install)</title>
+<meta name="description" content="On a locked-down work laptop you cannot install Access or its Runtime, and cannot upload the file to a converter. How to read an .accdb or .mdb anyway.">
+<link rel="canonical" href="https://phakeoa.github.io/accesslens/open-access-database-without-admin-rights.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3f6b47">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Open an Access database without admin rights (no install)">
+<meta property="og:description" content="On a locked-down work laptop you cannot install Access or its Runtime, and cannot upload the file to a converter. How to read an .accdb or .mdb anyway.">
+<meta property="og:url" content="https://phakeoa.github.io/accesslens/open-access-database-without-admin-rights.html">
+<meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
+<link rel="icon" type="image/png" href="assets/icon128.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Open an Access database on a locked-down work computer — no admin rights, no install","description":"On a locked-down work laptop you cannot install Access or its Runtime, and cannot upload the file to a converter. How to read an .accdb or .mdb anyway.","url":"https://phakeoa.github.io/accesslens/open-access-database-without-admin-rights.html","datePublished":"2026-09-10","dateModified":"2026-09-10","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I open an .accdb file without installing Microsoft Access?","acceptedAnswer":{"@type":"Answer","text":"Yes. A browser extension that parses the Access format, such as AccessLens for Chrome and Edge, opens the file in a tab without any installer or administrator rights."}},{"@type":"Question","name":"Is it safe to open confidential Access files this way?","acceptedAnswer":{"@type":"Answer","text":"AccessLens requests no network permission, so the file is processed inside the browser tab and cannot be transmitted. You can confirm the empty permissions list on the store listing or use it with the network disconnected."}}]}</script>
+<style>
+:root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--bg:#12150f;--bg-soft:#181c15;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a;--accent-fg:#10150f;--accent-soft:#1f2a20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}a{color:var(--accent)}code{font-size:.93em}
+header.site{border-bottom:1px solid var(--line)}header.site .wrap{display:flex;align-items:center;gap:10px;padding:14px 20px}
+header.site img{width:28px;height:28px;border-radius:6px}header.site b{font-size:15px}header.site .sp{flex:1}header.site a.top{font-size:14px;text-decoration:none;color:var(--fg-soft)}
+article{padding:40px 0 20px}h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--fg-soft);margin:0 0 28px}h2{font-size:22px;margin:34px 0 10px;letter-spacing:-.01em}
+p,li{color:var(--fg-soft)}ol,ul{padding-left:22px}li{margin:8px 0}li strong,p strong{color:var(--fg)}
+.cta-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:36px 0}
+.cta-box h2{margin:0 0 8px;font-size:20px}.cta-box p{margin:0 0 14px}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:600;padding:12px 24px;border-radius:var(--radius)}
+.cta-sub{display:block;margin-top:10px;font-size:14px;color:var(--fg-faint)}
+details{border-bottom:1px solid var(--line);padding:12px 0}details:last-of-type{border-bottom:none}
+summary{cursor:pointer;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:20px;color:var(--accent);font-weight:700}details[open] summary::before{content:"\2212"}
+details p{margin:8px 0 2px 20px}
+nav.more{border-top:1px solid var(--line);padding:26px 0}nav.more h2{font-size:17px;margin:0 0 8px}nav.more ul{margin:0;padding-left:20px}nav.more li{margin:5px 0}
+footer.site{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--fg-faint);font-size:14px}footer.site a{color:var(--fg-soft)}footer.site p{margin:0 0 6px}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <img src="assets/icon128.png" alt="">
+    <b>AccessLens</b>
+    <span class="sp"></span>
+    <a class="top" href="./">Home</a>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<article>
+  <h1>Open an Access database on a locked-down work computer — no admin rights, no install</h1>
+  <p class="lede">The common situation: a vendor, a colleague or an old system hands you an <code>.accdb</code> or <code>.mdb</code>. Access is not on the machine, IT will not install it, the free Access Runtime also needs an installer you cannot run, and the data is confidential enough that pasting it into a web converter is not an option either.</p>
+  <h2>Why the usual answers fail here</h2>
+<ul>
+          <li><strong>Microsoft Access / Access Runtime</strong> — both need an installer and local admin rights.</li>
+          <li><strong>Portable desktop viewers</strong> — most corporate policies block unsigned executables outright, admin or not.</li>
+          <li><strong>Online converters</strong> — the file leaves the company. For client, HR, financial or health data that is a policy breach, not a shortcut.</li>
+          <li><strong>Excel's "Get Data from Access"</strong> — works, but only if the Access Database Engine is installed, which it often is not on a machine without Access.</li>
+        </ul>
+
+  <h2>What does work: a permission-less browser extension</h2>
+<p>Chrome and Edge extensions install into <em>your</em> browser profile, not the machine, so they
+        normally need no administrator. AccessLens opens <code>.mdb</code> and <code>.accdb</code> files
+        (Access 97 to 2019, including password-protected ones) in a browser tab, lets you browse and search
+        every table, and exports to CSV for Excel.</p>
+        <p>It is built for exactly this environment: it requests <strong>no permissions at all</strong> — no
+        network, no host access, no storage, no content scripts. It has no technical means of sending the file
+        anywhere, and the empty permissions list on its store page is something you can show IT.</p>
+        <p>If the organisation blocks the Chrome Web Store, an administrator can allow this one extension by
+        its ID, <code>ceilhkpcnofeomaibeldikllpgjolaml</code>, through the browser's extension policy.</p>
+
+  <div class="cta-box">
+    <h2>Just need the tables out of the file?</h2>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml">Add to Chrome — free</a>
+    <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
+  </div>
+
+  <h2>Questions</h2>
+  <details open>
+    <summary>Can I open an .accdb file without installing Microsoft Access?</summary>
+    <p>Yes. A browser extension that parses the Access format, such as AccessLens for Chrome and Edge, opens the file in a tab without any installer or administrator rights.</p>
+  </details>
+  <details>
+    <summary>Is it safe to open confidential Access files this way?</summary>
+    <p>AccessLens requests no network permission, so the file is processed inside the browser tab and cannot be transmitted. You can confirm the empty permissions list on the store listing or use it with the network disconnected.</p>
+  </details>
+</article>
+
+<nav class="more">
+  <h2>Related guides</h2>
+  <ul>
+      <li><a href="unrecognized-database-format.html">“Unrecognized database format” — what it means and how to fix it</a></li>
+      <li><a href="cannot-open-database-created-with-previous-version.html">“Cannot open a database created with a previous version of your application”</a></li>
+      <li><a href="open-accdb-on-mac.html">How to open an .accdb or .mdb file on a Mac</a></li>
+      <li><a href="open-accdb-on-chromebook.html">How to open an .accdb or .mdb file on a Chromebook</a></li>
+      <li><a href="./">AccessLens — open MDB &amp; ACCDB files without Microsoft Access</a></li>
+  </ul>
+</nav>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml">Chrome Web Store</a></p>
+    <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10.</p>
+  </div>
+</footer>
+</body>
+</html>
