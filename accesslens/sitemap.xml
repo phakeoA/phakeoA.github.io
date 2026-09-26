@@ -31,6 +31,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://phakeoa.github.io/accesslens/extension-blocked-by-administrator.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://phakeoa.github.io/accesslens/privacy.html</loc>
     <lastmod>2026-08-31</lastmod>
     <priority>0.3</priority>
