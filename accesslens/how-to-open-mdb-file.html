@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDB file: what it is and how to open one (no Access needed)</title>
+<meta name="description" content="An .mdb file is a Microsoft Access database. How to open one on Windows, Mac, Chromebook or Linux, with or without Access, and get the tables into Excel.">
+<link rel="canonical" href="https://phakeoa.github.io/accesslens/how-to-open-mdb-file.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3f6b47">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MDB file: what it is and how to open one (no Access needed)">
+<meta property="og:description" content="An .mdb file is a Microsoft Access database. How to open one on Windows, Mac, Chromebook or Linux, with or without Access, and get the tables into Excel.">
+<meta property="og:url" content="https://phakeoa.github.io/accesslens/how-to-open-mdb-file.html">
+<meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
+<link rel="icon" type="image/png" href="assets/icon128.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MDB file: what it is and how to open one","description":"An .mdb file is a Microsoft Access database. How to open one on Windows, Mac, Chromebook or Linux, with or without Access, and get the tables into Excel.","url":"https://phakeoa.github.io/accesslens/how-to-open-mdb-file.html","datePublished":"2026-09-26","dateModified":"2026-09-26","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What program opens an .mdb file?","acceptedAnswer":{"@type":"Answer","text":"Microsoft Access, on Windows. Without Access: Excel can import the tables on Windows if the Access Database Engine is installed, mdbtools reads them on Mac and Linux, and AccessLens opens them in a Chrome tab on your own computer without uploading them."}},{"@type":"Question","name":"What is the difference between .mdb and .accdb?","acceptedAnswer":{"@type":"Answer","text":".mdb is the database format of Access 2003 and earlier. .accdb has been the default since Access 2007 and adds features such as attachments, multi-valued fields and stronger encryption. Access 2007 and later open both, except Access 97 .mdb files, which need Access 2010 or earlier."}},{"@type":"Question","name":"Can I convert an .mdb file to Excel?","acceptedAnswer":{"@type":"Answer","text":"Yes, one table at a time. Export each table to CSV with AccessLens or mdbtools, or import it with Excel's Get Data → From Microsoft Access Database on Windows."}},{"@type":"Question","name":"Can an .mdb file contain a virus?","acceptedAnswer":{"@type":"Answer","text":"It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file."}}]}</script>
+<style>
+:root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--bg:#12150f;--bg-soft:#181c15;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a;--accent-fg:#10150f;--accent-soft:#1f2a20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}a{color:var(--accent)}code{font-size:.93em}
+header.site{border-bottom:1px solid var(--line)}header.site .wrap{display:flex;align-items:center;gap:10px;padding:14px 20px}
+header.site img{width:28px;height:28px;border-radius:6px}header.site b{font-size:15px}header.site .sp{flex:1}header.site a.top{font-size:14px;text-decoration:none;color:var(--fg-soft)}
+article{padding:40px 0 20px}h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--fg-soft);margin:0 0 28px}h2{font-size:22px;margin:34px 0 10px;letter-spacing:-.01em}
+p,li{color:var(--fg-soft)}ol,ul{padding-left:22px}li{margin:8px 0}li strong,p strong{color:var(--fg)}
+.cta-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:36px 0}
+.cta-box h2{margin:0 0 8px;font-size:20px}.cta-box p{margin:0 0 14px}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:600;padding:12px 24px;border-radius:var(--radius)}
+.cta-sub{display:block;margin-top:10px;font-size:14px;color:var(--fg-faint)}
+details{border-bottom:1px solid var(--line);padding:12px 0}details:last-of-type{border-bottom:none}
+summary{cursor:pointer;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:20px;color:var(--accent);font-weight:700}details[open] summary::before{content:"\2212"}
+details p{margin:8px 0 2px 20px}
+nav.more{border-top:1px solid var(--line);padding:26px 0}nav.more h2{font-size:17px;margin:0 0 8px}nav.more ul{margin:0;padding-left:20px}nav.more li{margin:5px 0}
+footer.site{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--fg-faint);font-size:14px}footer.site a{color:var(--fg-soft)}footer.site p{margin:0 0 6px}
+blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);background:var(--bg-soft);border-radius:0 var(--radius) var(--radius) 0}blockquote p{margin:0;color:var(--fg)}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <img src="assets/icon128.png" alt="">
+    <b>AccessLens</b>
+    <span class="sp"></span>
+    <a class="top" href="./">Home</a>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<article>
+  <h1>MDB file: what it is and how to open one</h1>
+  <p class="lede">An <code>.mdb</code> file is a Microsoft Access database: tables of records, and often the queries, forms and reports built on them, all in one file. It was Access's standard format up to Access 2003 (Access 2007 replaced it with <a href="how-to-open-accdb-file.html"><code>.accdb</code></a>), so most <code>.mdb</code> files people are handed today come from an older system, a vendor export or an archive. You do not need Access to read one.</p>
+  <h2>Which program opens an .mdb file</h2>
+<ul>
+          <li><strong>Windows, with Microsoft Access:</strong> double-click it. Access 2007 and later open <code>.mdb</code> files from Access 2000 onward. Files from Access 97 need Access 2010 or earlier (<a href="cannot-open-database-created-with-previous-version.html">why</a>).</li>
+          <li><strong>Windows, without Access:</strong> Excel can import the tables (<em>Data → Get Data → From Database → From Microsoft Access Database</em>) if the Access Database Engine is installed; if it is not, Excel stops with <em>The 'Microsoft.ACE.OLEDB.12.0' provider is not registered</em>. The free Access Runtime runs finished Access applications but hides the navigation pane, so it is a poor way to simply look at tables.</li>
+          <li><strong>Mac:</strong> there has never been an Access for Mac. The options are a Chrome extension, mdbtools from Homebrew on the command line, or Windows in a virtual machine (<a href="open-accdb-on-mac.html">details</a>).</li>
+          <li><strong>Chromebook:</strong> a Chrome extension, or mdbtools under Linux (<a href="open-accdb-on-chromebook.html">details</a>).</li>
+          <li><strong>Linux:</strong> mdbtools, packaged by most distributions: <code>mdb-tables file.mdb</code> lists the tables, <code>mdb-export file.mdb TableName &gt; table.csv</code> exports one.</li>
+          <li><strong>In Chrome on any of these computers:</strong> AccessLens opens <code>.mdb</code> files from Access 97 to 2003 (and <code>.accdb</code> files from 2007 to 2019) in a browser tab. Browse every table, search it, export it to CSV. Nothing is uploaded.</li>
+        </ul>
+        <p>Microsoft Access has no phone or tablet version, so open the file on a computer.</p>
+
+  <h2>Getting the tables into Excel or Google Sheets</h2>
+<p>An Access database holds many tables, and a spreadsheet holds one per sheet, so the move is
+        always table by table. Use Excel's import on Windows (it needs the Access Database Engine), run
+        <code>mdb-export</code>, or open the file in AccessLens, pick a table and use <em>Export → CSV</em>.
+        A CSV opens directly in Excel, Numbers and Google Sheets.</p>
+
+  <h2>Before you upload it to an online viewer</h2>
+<p>Online MDB viewers come in two kinds. Some upload the file to their server and convert it there,
+        usually with a size limit; others read it inside your browser. For anything confidential (customer,
+        HR, financial or medical records) find out which kind a site is before you use it.</p>
+        <p>AccessLens is in the second group by construction: it requests no permissions at all, network
+        included, so it has no way to send the file anywhere. The empty permissions list is visible on its
+        store page.</p>
+
+  <h2>Is it really an Access file?</h2>
+<p>Other programs sometimes reuse the <code>.mdb</code> extension for formats of their own. To check,
+        open the file in Notepad or any text editor: a genuine Access <code>.mdb</code> shows
+        <code>Standard Jet DB</code> at the very start (an <code>.accdb</code> shows <code>Standard ACE DB</code>).
+        If you see neither, no Access viewer can read it; you need the program that created it.</p>
+        <ul>
+          <li><strong>A small <code>.ldb</code> file</strong> next to the database is a lock file that Access creates while the database is open. It holds no data.</li>
+          <li><strong>ArcGIS personal geodatabases</strong> really are Access <code>.mdb</code> files, so Access-compatible tools can read their attribute tables. The map shapes themselves are stored in a binary format that only GIS software can draw.</li>
+        </ul>
+
+  <div class="cta-box">
+    <h2>Just need the tables out of the file?</h2>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-mdb-file&amp;utm_content=cta">Add to Chrome — free</a>
+    <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
+  </div>
+
+  <h2>Questions</h2>
+  <details open>
+    <summary>What program opens an .mdb file?</summary>
+    <p>Microsoft Access, on Windows. Without Access: Excel can import the tables on Windows if the Access Database Engine is installed, mdbtools reads them on Mac and Linux, and AccessLens opens them in a Chrome tab on your own computer without uploading them.</p>
+  </details>
+  <details>
+    <summary>What is the difference between .mdb and .accdb?</summary>
+    <p>.mdb is the database format of Access 2003 and earlier. .accdb has been the default since Access 2007 and adds features such as attachments, multi-valued fields and stronger encryption. Access 2007 and later open both, except Access 97 .mdb files, which need Access 2010 or earlier.</p>
+  </details>
+  <details>
+    <summary>Can I convert an .mdb file to Excel?</summary>
+    <p>Yes, one table at a time. Export each table to CSV with AccessLens or mdbtools, or import it with Excel's Get Data → From Microsoft Access Database on Windows.</p>
+  </details>
+  <details>
+    <summary>Can an .mdb file contain a virus?</summary>
+    <p>It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file.</p>
+  </details>
+</article>
+
+<nav class="more">
+  <h2>Related guides</h2>
+  <ul>
+      <li><a href="how-to-open-accdb-file.html">ACCDB file: what it is and how to open one</a></li>
+      <li><a href="unrecognized-database-format.html">“Unrecognized database format” — what it means and how to fix it</a></li>
+      <li><a href="cannot-open-database-created-with-previous-version.html">“Cannot open a database created with a previous version of your application”</a></li>
+      <li><a href="open-accdb-on-mac.html">How to open an .accdb or .mdb file on a Mac</a></li>
+      <li><a href="open-accdb-on-chromebook.html">How to open an .accdb or .mdb file on a Chromebook</a></li>
+      <li><a href="open-access-database-without-admin-rights.html">Open an Access database on a locked-down work computer — no admin rights, no install</a></li>
+      <li><a href="extension-blocked-by-administrator.html">Extension blocked by your administrator: getting AccessLens approved at work</a></li>
+      <li><a href="./">AccessLens — open MDB &amp; ACCDB files without Microsoft Access</a></li>
+  </ul>
+</nav>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-mdb-file&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
+    <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26.</p>
+  </div>
+</footer>
+</body>
+</html>

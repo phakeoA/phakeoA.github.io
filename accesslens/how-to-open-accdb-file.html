@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACCDB file: what it is and how to open one (no Access needed)</title>
+<meta name="description" content="An .accdb file is a Microsoft Access 2007+ database. How to open one with or without Access, on Windows, Mac or Chromebook, password-protected files included.">
+<link rel="canonical" href="https://phakeoa.github.io/accesslens/how-to-open-accdb-file.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3f6b47">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACCDB file: what it is and how to open one (no Access needed)">
+<meta property="og:description" content="An .accdb file is a Microsoft Access 2007+ database. How to open one with or without Access, on Windows, Mac or Chromebook, password-protected files included.">
+<meta property="og:url" content="https://phakeoa.github.io/accesslens/how-to-open-accdb-file.html">
+<meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
+<link rel="icon" type="image/png" href="assets/icon128.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"ACCDB file: what it is and how to open one","description":"An .accdb file is a Microsoft Access 2007+ database. How to open one with or without Access, on Windows, Mac or Chromebook, password-protected files included.","url":"https://phakeoa.github.io/accesslens/how-to-open-accdb-file.html","datePublished":"2026-09-26","dateModified":"2026-09-26","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I open an .accdb file without Access?","acceptedAnswer":{"@type":"Answer","text":"Yes. AccessLens, a free Chrome extension, opens .accdb files in a browser tab without Access and without uploading the file. On Windows, Excel can also import the tables if the Access Database Engine is installed."}},{"@type":"Question","name":"Is .accdb the same as .mdb?","acceptedAnswer":{"@type":"Answer","text":"No. .accdb is the Access 2007 and later format; .mdb is the format of Access 2003 and earlier. Access 2007 and later open both, but Access 2003 and earlier cannot open .accdb files."}},{"@type":"Question","name":"How do I open a password-protected .accdb?","acceptedAnswer":{"@type":"Answer","text":"Enter the password when Access or AccessLens asks for it. The file is encrypted, so the password is needed to read it; AccessLens uses it locally and never stores it."}},{"@type":"Question","name":"Can an .accdb file contain a virus?","acceptedAnswer":{"@type":"Answer","text":"It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file."}}]}</script>
+<style>
+:root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--bg:#12150f;--bg-soft:#181c15;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a;--accent-fg:#10150f;--accent-soft:#1f2a20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}a{color:var(--accent)}code{font-size:.93em}
+header.site{border-bottom:1px solid var(--line)}header.site .wrap{display:flex;align-items:center;gap:10px;padding:14px 20px}
+header.site img{width:28px;height:28px;border-radius:6px}header.site b{font-size:15px}header.site .sp{flex:1}header.site a.top{font-size:14px;text-decoration:none;color:var(--fg-soft)}
+article{padding:40px 0 20px}h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--fg-soft);margin:0 0 28px}h2{font-size:22px;margin:34px 0 10px;letter-spacing:-.01em}
+p,li{color:var(--fg-soft)}ol,ul{padding-left:22px}li{margin:8px 0}li strong,p strong{color:var(--fg)}
+.cta-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:36px 0}
+.cta-box h2{margin:0 0 8px;font-size:20px}.cta-box p{margin:0 0 14px}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:600;padding:12px 24px;border-radius:var(--radius)}
+.cta-sub{display:block;margin-top:10px;font-size:14px;color:var(--fg-faint)}
+details{border-bottom:1px solid var(--line);padding:12px 0}details:last-of-type{border-bottom:none}
+summary{cursor:pointer;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:20px;color:var(--accent);font-weight:700}details[open] summary::before{content:"\2212"}
+details p{margin:8px 0 2px 20px}
+nav.more{border-top:1px solid var(--line);padding:26px 0}nav.more h2{font-size:17px;margin:0 0 8px}nav.more ul{margin:0;padding-left:20px}nav.more li{margin:5px 0}
+footer.site{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--fg-faint);font-size:14px}footer.site a{color:var(--fg-soft)}footer.site p{margin:0 0 6px}
+blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);background:var(--bg-soft);border-radius:0 var(--radius) var(--radius) 0}blockquote p{margin:0;color:var(--fg)}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <img src="assets/icon128.png" alt="">
+    <b>AccessLens</b>
+    <span class="sp"></span>
+    <a class="top" href="./">Home</a>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<article>
+  <h1>ACCDB file: what it is and how to open one</h1>
+  <p class="lede">An <code>.accdb</code> file is a Microsoft Access database in the format Access has used since Access 2007, when it replaced the older <a href="how-to-open-mdb-file.html"><code>.mdb</code></a>. It holds tables of records and often the queries, forms and reports built on them. Access runs only on Windows and is not part of every Microsoft 365 plan, so plenty of people are handed an <code>.accdb</code> with nothing to open it. You do not need Access to read one.</p>
+  <h2>Which program opens an .accdb file</h2>
+<ul>
+          <li><strong>Windows, with Access 2007 or later:</strong> double-click it. Access 2003 and older cannot open <code>.accdb</code> at all, and older 2007+ versions refuse files that use newer data types (<a href="unrecognized-database-format.html">“Unrecognized database format”</a>).</li>
+          <li><strong>Windows, without Access:</strong> Excel imports the tables (<em>Data → Get Data → From Database → From Microsoft Access Database</em>) if the Access Database Engine is installed. The free Access Runtime runs finished Access applications but hides the navigation pane, so it is a poor way to browse tables. On a work PC where you cannot install anything, see <a href="open-access-database-without-admin-rights.html">this guide</a>.</li>
+          <li><strong>Mac:</strong> there is no Access for Mac (<a href="open-accdb-on-mac.html">what works instead</a>).</li>
+          <li><strong>Chromebook:</strong> <a href="open-accdb-on-chromebook.html">what works</a>.</li>
+          <li><strong>Linux:</strong> mdbtools reads many <code>.accdb</code> files, but its support for the newer format is partial.</li>
+          <li><strong>In Chrome on any of these computers:</strong> AccessLens opens <code>.accdb</code> files from Access 2007 to 2019 in a browser tab. Browse every table, search it, export it to CSV, without uploading the file. Attachment and multi-valued columns show as marked placeholders.</li>
+        </ul>
+
+  <h2>Password-protected .accdb files</h2>
+<p>Setting a database password in Access 2007 or later encrypts the file. If you have the password,
+        Access asks for it when you open the file, and AccessLens does the same: it supports Access 2010
+        RC4 and Office Agile encryption, uses the password on your machine and never stores it. AccessLens
+        does not recover or bypass passwords.</p>
+
+  <h2>Converting .accdb to .mdb, Excel or CSV</h2>
+<ul>
+          <li><strong>To .mdb</strong>, for an older system: in Access, <em>File → Save As → Access 2002-2003 Database</em>. This fails if the database uses <code>.accdb</code>-only features such as attachments or multi-valued fields.</li>
+          <li><strong>To Excel or CSV</strong>, one table at a time: from Access (<em>External Data → Export → Excel</em>), with Excel's <em>Get Data</em> import, or with AccessLens (<em>Export → CSV</em>), which needs no Access at all.</li>
+        </ul>
+
+  <h2>Files that travel with an .accdb</h2>
+<ul>
+          <li><strong><code>.laccdb</code></strong> — a lock file Access creates while the database is open. It holds no data.</li>
+          <li><strong><code>.accde</code></strong> — a compiled, locked copy of a database, meant to be run in Access, with design views and VBA source removed.</li>
+          <li><strong><code>.accdr</code></strong> — a copy renamed so that Access opens it in runtime mode.</li>
+        </ul>
+
+  <div class="cta-box">
+    <h2>Just need the tables out of the file?</h2>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-accdb-file&amp;utm_content=cta">Add to Chrome — free</a>
+    <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
+  </div>
+
+  <h2>Questions</h2>
+  <details open>
+    <summary>Can I open an .accdb file without Access?</summary>
+    <p>Yes. AccessLens, a free Chrome extension, opens .accdb files in a browser tab without Access and without uploading the file. On Windows, Excel can also import the tables if the Access Database Engine is installed.</p>
+  </details>
+  <details>
+    <summary>Is .accdb the same as .mdb?</summary>
+    <p>No. .accdb is the Access 2007 and later format; .mdb is the format of Access 2003 and earlier. Access 2007 and later open both, but Access 2003 and earlier cannot open .accdb files.</p>
+  </details>
+  <details>
+    <summary>How do I open a password-protected .accdb?</summary>
+    <p>Enter the password when Access or AccessLens asks for it. The file is encrypted, so the password is needed to read it; AccessLens uses it locally and never stores it.</p>
+  </details>
+  <details>
+    <summary>Can an .accdb file contain a virus?</summary>
+    <p>It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file.</p>
+  </details>
+</article>
+
+<nav class="more">
+  <h2>Related guides</h2>
+  <ul>
+      <li><a href="how-to-open-mdb-file.html">MDB file: what it is and how to open one</a></li>
+      <li><a href="unrecognized-database-format.html">“Unrecognized database format” — what it means and how to fix it</a></li>
+      <li><a href="cannot-open-database-created-with-previous-version.html">“Cannot open a database created with a previous version of your application”</a></li>
+      <li><a href="open-accdb-on-mac.html">How to open an .accdb or .mdb file on a Mac</a></li>
+      <li><a href="open-accdb-on-chromebook.html">How to open an .accdb or .mdb file on a Chromebook</a></li>
+      <li><a href="open-access-database-without-admin-rights.html">Open an Access database on a locked-down work computer — no admin rights, no install</a></li>
+      <li><a href="extension-blocked-by-administrator.html">Extension blocked by your administrator: getting AccessLens approved at work</a></li>
+      <li><a href="./">AccessLens — open MDB &amp; ACCDB files without Microsoft Access</a></li>
+  </ul>
+</nav>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-accdb-file&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
+    <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26.</p>
+  </div>
+</footer>
+</body>
+</html>
