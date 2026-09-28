@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/cannot-open-database-created-with-previous-version.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"“Cannot open a database created with a previous version of your application”","description":"Access 2013 and later refuse Access 97 .mdb files with this message. What it means, how to convert, and how to read the tables without an old Access.","url":"https://phakeoa.github.io/accesslens/cannot-open-database-created-with-previous-version.html","datePublished":"2026-09-10","dateModified":"2026-09-10","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"“Cannot open a database created with a previous version of your application”","description":"Access 2013 and later refuse Access 97 .mdb files with this message. What it means, how to convert, and how to read the tables without an old Access.","url":"https://phakeoa.github.io/accesslens/cannot-open-database-created-with-previous-version.html","datePublished":"2026-09-10","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which Access versions can still open an Access 97 .mdb?","acceptedAnswer":{"@type":"Answer","text":"Access 2007 and Access 2010 open and convert Access 97 databases. Access 2013, 2016, 2019 and Microsoft 365 do not."}},{"@type":"Question","name":"Is there a way to read an Access 97 file without any version of Access?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tools that parse the file format directly, rather than going through the Jet engine, are not bound by the version cut-off. AccessLens is one; it runs as a Chrome extension and reads Access 97 through 2019."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
@@ -66,7 +66,8 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
         reports, queries, code. If what you were handed is a records export, a vendor handover or an archive,
         the tables are the whole point, and those can be read directly.</p>
         <p>AccessLens parses the Access 97 <code>.mdb</code> format itself, without Access or the Jet engine.
-        Open the file in a Chrome tab, browse every table, search it, and export any table to CSV for Excel.
+        Open the file in a Chrome tab, browse every table, search it, and export any table to CSV, or every
+        table at once to an Excel workbook.
         Nothing is installed and nothing is uploaded — the extension has no network permission at all.</p>
         <ul>
           <li>Access 97 files often carry a database password. That password is a formality of the old format; like Access itself, AccessLens opens the file without it.</li>
@@ -75,7 +76,8 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=cannot-open-database-created-with-previous-version&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -110,7 +112,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=cannot-open-database-created-with-previous-version&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>

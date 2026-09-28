@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/open-access-database-without-admin-rights.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Open an Access database on a locked-down work computer — no admin rights, no install","description":"On a locked-down work laptop you cannot install Access or its Runtime, and cannot upload the file to a converter. How to read an .accdb or .mdb anyway.","url":"https://phakeoa.github.io/accesslens/open-access-database-without-admin-rights.html","datePublished":"2026-09-10","dateModified":"2026-09-10","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Open an Access database on a locked-down work computer — no admin rights, no install","description":"On a locked-down work laptop you cannot install Access or its Runtime, and cannot upload the file to a converter. How to read an .accdb or .mdb anyway.","url":"https://phakeoa.github.io/accesslens/open-access-database-without-admin-rights.html","datePublished":"2026-09-10","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I open an .accdb file without installing Microsoft Access?","acceptedAnswer":{"@type":"Answer","text":"Yes. A browser extension that parses the Access format, such as AccessLens for Chrome and Edge, opens the file in a tab without any installer or administrator rights."}},{"@type":"Question","name":"Is it safe to open confidential Access files this way?","acceptedAnswer":{"@type":"Answer","text":"AccessLens requests no network permission, so the file is processed inside the browser tab and cannot be transmitted. You can confirm the empty permissions list on the store listing or use it with the network disconnected."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
@@ -66,16 +66,17 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
 <p>Chrome and Edge extensions install into <em>your</em> browser profile, not the machine, so they
         normally need no administrator. AccessLens opens <code>.mdb</code> and <code>.accdb</code> files
         (Access 97 to 2019, including password-protected ones) in a browser tab, lets you browse and search
-        every table, and exports to CSV for Excel.</p>
+        every table, and exports to CSV or straight to an Excel workbook.</p>
         <p>It is built for exactly this environment: it requests <strong>no permissions at all</strong> — no
-        network, no host access, no storage, no content scripts. It has no technical means of sending the file
+        network, no host access, no storage permission, no content scripts. It has no technical means of sending the file
         anywhere, and the empty permissions list on its store page is something you can show IT.</p>
         <p>If the organisation blocks the Chrome Web Store, an administrator can allow this one extension by
         its ID, <code>ceilhkpcnofeomaibeldikllpgjolaml</code>, through the browser's extension policy.</p>
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-access-database-without-admin-rights&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -110,7 +111,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-access-database-without-admin-rights&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>

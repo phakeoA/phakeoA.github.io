@@ -40,17 +40,17 @@
     {
       "@type": "Question",
       "name": "How do I open an .mdb file without Microsoft Access?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Install AccessLens in Chrome, click the toolbar icon, and pick your .mdb or .accdb file. It opens in a browser tab where you can browse every table, search, and export to CSV. Microsoft Access does not need to be installed." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Install AccessLens in Chrome, click the toolbar icon, and pick your .mdb or .accdb file. It opens in a browser tab where you can browse every table, search, and export a table to CSV or the whole database to Excel, SQLite or a SQL script. Microsoft Access does not need to be installed." }
     },
     {
       "@type": "Question",
       "name": "Does my database get uploaded anywhere?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. AccessLens requests no permissions at all — no network permission, no host permissions, no storage. It has no technical means of sending your file anywhere. You can confirm this yourself: the permissions list on the Chrome Web Store listing is empty." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No. AccessLens requests no permissions at all — no network permission, no host permissions, no storage permission. It has no technical means of sending your file anywhere. You can confirm this yourself: the permissions list on the Chrome Web Store listing is empty." }
     },
     {
       "@type": "Question",
       "name": "Is it free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Viewing, searching and CSV export are free, with no account and no sign-up." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, for almost every file. Opening and browsing a database, searching within a table, the schema view, and exporting any table to CSV are free at any size, with no account and no sign-up. Exporting the whole database at once (Excel, SQLite, SQL script or a ZIP of CSVs) and searching every table at once are free for databases of up to 20 tables and 50,000 rows in total. Above that they need AccessLens Pro, a one-time licence: $5.99 for personal use, $15 for work use." }
     },
     {
       "@type": "Question",
@@ -142,6 +142,16 @@ section p.sub{color:var(--fg-soft);margin:0 0 26px}
 figure.shot{margin:0 0 26px}
 figure.shot img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:var(--radius)}
 figure.shot figcaption{margin-top:9px;font-size:14px;color:var(--fg-faint);text-align:center}
+/* video: a local thumbnail that links out, so the page still loads nothing third-party */
+a.video{position:relative;display:block;border-radius:var(--radius)}
+a.video::after{
+  /* sits in the thumbnail's empty right-hand side; fixed dark green = contrast on the light image in both themes */
+  --play:clamp(44px,8vw,76px);
+  content:"";position:absolute;left:85%;top:50%;width:var(--play);height:var(--play);transform:translate(-50%,-50%);
+  border-radius:50%;background:#3f6b47 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M8 5v14l11-7z'/%3E%3C/svg%3E") 56% 50%/45% no-repeat;
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+}
+a.video:hover::after{filter:brightness(1.1)}
 
 /* grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
@@ -195,7 +205,7 @@ footer.site p{margin:0 0 6px}
     <p class="lede">
       Been handed a legacy Access database and you don't have Access? AccessLens opens
       <code>.mdb</code> and <code>.accdb</code> files right in a Chrome tab — browse every table,
-      search it, export to CSV. Your file never leaves your computer.
+      search it, export to CSV, Excel or SQLite. Your file never leaves your computer.
     </p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=landing&amp;utm_content=hero">Add to Chrome — free</a>
     <span class="cta-sub">No account. No sign-up. No upload.</span>
@@ -205,7 +215,7 @@ footer.site p{margin:0 0 6px}
       <li>Works fully offline</li>
       <li>Access 97 → 2019</li>
       <li>Opens encrypted files</li>
-      <li>CSV export</li>
+      <li>CSV · Excel · SQLite export</li>
     </ul>
   </div>
 
@@ -225,7 +235,7 @@ footer.site p{margin:0 0 6px}
       </p>
       <p>
         <strong>AccessLens requests no permissions of any kind.</strong> No network permission, no
-        host permissions, no storage, no content scripts. It cannot see your browsing, cannot touch
+        host permissions, no storage permission, no content scripts. It cannot see your browsing, cannot touch
         other tabs, and has no technical means of sending your file anywhere — parsing happens
         inside the tab, on your machine.
       </p>
@@ -242,6 +252,11 @@ footer.site p{margin:0 0 6px}
     <p class="sub">Real screenshots, real Access files.</p>
 
     <figure class="shot">
+      <a class="video" href="https://youtu.be/ocJ4PTn_23w"><img src="assets/demo_video.png" alt="Play the 33-second AccessLens demo video on YouTube" width="1280" height="720" loading="lazy"></a>
+      <figcaption>A 33-second demo: open a file, browse, search, export. <a href="https://youtu.be/ocJ4PTn_23w">Watch on YouTube</a>.</figcaption>
+    </figure>
+
+    <figure class="shot">
       <img src="assets/screen1_browse.png" alt="Browsing a table of 830 rows from a Northwind .mdb database in AccessLens" width="1280" height="800" loading="lazy">
       <figcaption>Every table in the file, with row and column counts. Large tables scroll smoothly.</figcaption>
     </figure>
@@ -254,6 +269,16 @@ footer.site p{margin:0 0 6px}
     <figure class="shot">
       <img src="assets/screen3_dark_complex.png" alt="A modern .accdb database shown in dark mode" width="1280" height="800" loading="lazy">
       <figcaption>Modern <code>.accdb</code> files, dark mode, and honest handling of exotic column types.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="assets/screen4_export.png" alt="The Export menu: this table to CSV, all tables to a ZIP of CSVs or an Excel workbook, the whole database to SQLite or a SQL script" width="1280" height="800" loading="lazy">
+      <figcaption>Export one table to CSV, or every table at once: a ZIP of CSVs, an Excel workbook, a SQLite database or a SQL script.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="assets/screen5_schema.png" alt="The schema view listing each column's type, size and nullability, next to the database's relationships" width="1280" height="800" loading="lazy">
+      <figcaption>The schema view: every column's type and size, and every relationship in the database.</figcaption>
     </figure>
   </section>
 
@@ -269,20 +294,47 @@ footer.site p{margin:0 0 6px}
         <p>Opens password-protected files using Access 2010 RC4 and Office Agile encryption. The password is used locally and never stored.</p>
       </div>
       <div class="card">
-        <h3>No artificial size limits</h3>
+        <h3>No size limit on viewing</h3>
         <p>Paged loading and a virtualised table view, so tables with hundreds of thousands of rows stay responsive.</p>
       </div>
       <div class="card">
-        <h3>Search any table</h3>
-        <p>Filter instantly across all columns to find the record you're actually looking for.</p>
+        <h3>Search one table or all of them</h3>
+        <p>Filter instantly across all columns, or search every table at once with the results grouped by table.</p>
       </div>
       <div class="card">
-        <h3>Export to CSV</h3>
-        <p>Any table, one click, opens cleanly in Excel or Google Sheets. Unicode and quoting handled correctly.</p>
+        <h3>Export any table to CSV</h3>
+        <p>One click, free at any size, opens cleanly in Excel or Google Sheets. Unicode and quoting handled correctly.</p>
+      </div>
+      <div class="card">
+        <h3>Export the whole database</h3>
+        <p>Every table at once, as an Excel workbook (one sheet per table), a ZIP of CSVs, a SQLite database or a SQL script.</p>
+      </div>
+      <div class="card">
+        <h3>Schema and relationships</h3>
+        <p>Each column's type, size and nullability, and every relationship between the tables.</p>
       </div>
       <div class="card">
         <h3>Genuinely offline</h3>
         <p>Not "offline-capable" — it has no way to be online. Works on an air-gapped machine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Free, with an optional Pro licence</h2>
+    <p class="sub">Most files never need Pro, and everything that was free before Pro existed is still free.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Free, at any size</h3>
+        <p>Open and browse any database, search within any table, the schema view, and export any table to CSV. No account, no sign-up, free at work too.</p>
+      </div>
+      <div class="card">
+        <h3>Free for most databases</h3>
+        <p>Exporting the whole database at once and searching every table, for databases of up to 20 tables and 50,000 rows in total.</p>
+      </div>
+      <div class="card">
+        <h3>Pro, for bigger databases</h3>
+        <p>Those two features above the limits. One-time: $5.99 for personal use, $15 for work use (covers the people at one organisation). The key is checked offline, so Pro sends nothing anywhere either. <a href="https://payhip.com/b/U60Cu">Licence terms and purchase</a></p>
       </div>
     </div>
   </section>
@@ -294,7 +346,7 @@ footer.site p{margin:0 0 6px}
       <ul>
         <li><strong>Read-only.</strong> AccessLens views and exports; it never modifies your file.</li>
         <li><strong>Tables and data only.</strong> Access forms, reports, macros and VBA aren't shown.</li>
-        <li><strong>Multi-valued and attachment columns</strong> (an Access 2007+ feature) can't be displayed. They appear as clearly-marked placeholders and are skipped in CSV export.</li>
+        <li><strong>Multi-valued and attachment columns</strong> (an Access 2007+ feature) can't be displayed. They appear as clearly-marked placeholders and are left out of exports.</li>
         <li><strong>Legacy Jet-era passwords</strong> (Access 97–2003) are a formality of that old format. Like Access itself, AccessLens opens those files without needing the password.</li>
       </ul>
     </div>
@@ -345,7 +397,7 @@ footer.site p{margin:0 0 6px}
 
     <details open>
       <summary>How do I open an .mdb file without Microsoft Access?</summary>
-      <p>Install AccessLens, click the toolbar icon, and choose your <code>.mdb</code> or <code>.accdb</code> file. It opens in a browser tab where you can browse every table, search it, and export to CSV. Access does not need to be installed, and there's nothing to configure.</p>
+      <p>Install AccessLens, click the toolbar icon, and choose your <code>.mdb</code> or <code>.accdb</code> file. It opens in a browser tab where you can browse every table, search it, and export a table to CSV or the whole database to Excel, SQLite or a SQL script. Access does not need to be installed, and there's nothing to configure.</p>
     </details>
 
     <details>
@@ -355,7 +407,7 @@ footer.site p{margin:0 0 6px}
 
     <details>
       <summary>Is it free?</summary>
-      <p>Yes. Viewing, searching and CSV export are free, with no account and no sign-up.</p>
+      <p>Yes, for almost every file. Opening and browsing a database, searching within a table, the schema view, and exporting any table to CSV are free at any size, with no account and no sign-up. Exporting the whole database at once and searching every table at once are free for databases of up to 20 tables and 50,000 rows in total. Above that they need <a href="#pricing">AccessLens Pro</a>, a one-time licence: $5.99 for personal use, $15 for work use.</p>
     </details>
 
     <details>

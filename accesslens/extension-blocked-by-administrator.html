@@ -14,8 +14,8 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/extension-blocked-by-administrator.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Extension blocked by your administrator: getting AccessLens approved at work","description":"Chrome says an extension is blocked by your administrator? How to request AccessLens at work, what to tell IT, and how admins can allow it by its ID.","url":"https://phakeoa.github.io/accesslens/extension-blocked-by-administrator.html","datePublished":"2026-09-26","dateModified":"2026-09-26","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is a Chrome extension blocked by my administrator?","acceptedAnswer":{"@type":"Answer","text":"Your organisation manages Chrome and only allows approved extensions. An administrator can approve one extension by its ID without changing anything else."}},{"@type":"Question","name":"Does AccessLens need any permissions?","acceptedAnswer":{"@type":"Answer","text":"No. It declares no permissions, no host access and no content scripts, and it has no network access, so the database file never leaves the computer."}},{"@type":"Question","name":"Is AccessLens free for business use?","acceptedAnswer":{"@type":"Answer","text":"Yes. The free features are free for everyone, including at work. Only the optional Pro features, in version 1.1 and later, need a paid licence, and using Pro for work requires the Business licence ($15, one-time)."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Extension blocked by your administrator: getting AccessLens approved at work","description":"Chrome says an extension is blocked by your administrator? How to request AccessLens at work, what to tell IT, and how admins can allow it by its ID.","url":"https://phakeoa.github.io/accesslens/extension-blocked-by-administrator.html","datePublished":"2026-09-26","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is a Chrome extension blocked by my administrator?","acceptedAnswer":{"@type":"Answer","text":"Your organisation manages Chrome and only allows approved extensions. An administrator can approve one extension by its ID without changing anything else."}},{"@type":"Question","name":"Does AccessLens need any permissions?","acceptedAnswer":{"@type":"Answer","text":"No. It declares no permissions, no host access and no content scripts, and it has no network access, so the database file never leaves the computer."}},{"@type":"Question","name":"Is AccessLens free for business use?","acceptedAnswer":{"@type":"Answer","text":"Yes. The free features are free for everyone, including at work. Only the optional Pro features need a paid licence: exporting the whole database at once and searching every table, on databases with more than 20 tables or 50,000 rows in total. Using Pro for work requires the Business licence ($15, one-time)."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
 @media (prefers-color-scheme:dark){:root{--bg:#12150f;--bg-soft:#181c15;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a;--accent-fg:#10150f;--accent-soft:#1f2a20}}
@@ -75,8 +75,9 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
           <li><strong>Network: none.</strong> The file is parsed inside the extension's own tab by a
           Web Worker. The release build is checked automatically and fails if any network API is present,
           and the extension behaves the same with the network disconnected.</li>
-          <li><strong>Data: nothing collected</strong> — no analytics, no telemetry, no account. See the
-          <a href="privacy.html">privacy policy</a>.</li>
+          <li><strong>Data: nothing collected</strong> — no analytics, no telemetry, no account. If someone
+          activates the optional Pro licence, the key is checked offline and kept in the browser; it is
+          never sent anywhere. See the <a href="privacy.html">privacy policy</a>.</li>
           <li><strong>Read-only.</strong> It never modifies the database file.</li>
           <li><strong>Allowing it:</strong> in the Google Admin console, add the ID under Chrome apps and
           extensions, or list it in the <code>ExtensionInstallAllowlist</code> policy, which both Chrome
@@ -84,15 +85,18 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
         </ul>
 
   <h2>Licensing at work</h2>
-<p>AccessLens is free, including at work. Version 1.1 and later add optional Pro features for
-        large databases (exporting the whole database at once and searching every table). Using Pro for
+<p>AccessLens is free, including at work. The optional Pro features cover large databases:
+        exporting the whole database at once and searching every table, when a database has more than
+        20 tables or 50,000 rows in total. Below those limits everything is free, and exporting one table
+        to CSV is free at any size. Using Pro for
         work requires the <strong>Business licence: $15, one-time</strong>, covering the people who use
         Pro at one organisation. Invoices can carry the company name and VAT number. Full terms are on
         the <a href="https://payhip.com/b/U60Cu">licence page</a>.</p>
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=extension-blocked-by-administrator&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -108,7 +112,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   </details>
   <details>
     <summary>Is AccessLens free for business use?</summary>
-    <p>Yes. The free features are free for everyone, including at work. Only the optional Pro features, in version 1.1 and later, need a paid licence, and using Pro for work requires the Business licence ($15, one-time).</p>
+    <p>Yes. The free features are free for everyone, including at work. Only the optional Pro features need a paid licence: exporting the whole database at once and searching every table, on databases with more than 20 tables or 50,000 rows in total. Using Pro for work requires the Business licence ($15, one-time).</p>
   </details>
 </article>
 
@@ -131,7 +135,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=extension-blocked-by-administrator&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>

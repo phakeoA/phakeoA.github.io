@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/open-accdb-on-chromebook.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to open an .accdb or .mdb file on a Chromebook","description":"ChromeOS cannot run Access. How to open, search and export an .accdb or .mdb on a Chromebook with a free extension that keeps the file on the device.","url":"https://phakeoa.github.io/accesslens/open-accdb-on-chromebook.html","datePublished":"2026-09-10","dateModified":"2026-09-10","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to open an .accdb or .mdb file on a Chromebook","description":"ChromeOS cannot run Access. How to open, search and export an .accdb or .mdb on a Chromebook with a free extension that keeps the file on the device.","url":"https://phakeoa.github.io/accesslens/open-accdb-on-chromebook.html","datePublished":"2026-09-10","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a Chromebook open Microsoft Access files?","acceptedAnswer":{"@type":"Answer","text":"Not with Access itself, which does not run on ChromeOS. A Chrome extension that parses the format, such as AccessLens, opens .mdb and .accdb files directly in the browser; mdbtools under Linux is the command-line alternative."}},{"@type":"Question","name":"Does AccessLens need access to my Google Drive?","acceptedAnswer":{"@type":"Answer","text":"No. It requests no permissions at all. You pick a file through the standard file picker and only that file is read, on the device."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
@@ -56,7 +56,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <p class="lede">A Chromebook cannot run Microsoft Access, and there is no Android app for the format. The good news is that a Chromebook is the one machine where a Chrome extension is the native answer rather than a workaround.</p>
   <h2>What works</h2>
 <ol>
-          <li><strong>AccessLens (Chrome extension).</strong> Reads <code>.mdb</code> and <code>.accdb</code> files (Access 97 through 2019) entirely inside the browser. Open the file from the Files app or from Google Drive through the normal file picker, browse every table, search, export to CSV and open that in Google Sheets. The extension has no permissions of any kind: no Drive access, no network access. It only ever sees the one file you pick.</li>
+          <li><strong>AccessLens (Chrome extension).</strong> Reads <code>.mdb</code> and <code>.accdb</code> files (Access 97 through 2019) entirely inside the browser. Open the file from the Files app or from Google Drive through the normal file picker, browse and search every table, and export a table to CSV or every table to one Excel workbook, then open it in Google Sheets. The extension has no permissions of any kind: no Drive access, no network access. It only ever sees the one file you pick.</li>
           <li><strong>Linux (Crostini) + mdbtools.</strong> For the command-line inclined: enable Linux on the Chromebook, <code>sudo apt install mdbtools</code>, then <code>mdb-export file.mdb TableName &gt; table.csv</code>. Works well; Jet 3 (Access 97) support varies by version.</li>
           <li><strong>Online converters.</strong> Upload the file, download a spreadsheet. Convenient until the file is something you are not allowed to hand to a third party.</li>
         </ol>
@@ -68,7 +68,8 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-chromebook&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -103,7 +104,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-chromebook&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>

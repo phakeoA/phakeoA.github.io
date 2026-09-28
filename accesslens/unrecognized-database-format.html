@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/unrecognized-database-format.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"“Unrecognized database format” — what it means and how to fix it","description":"Why Microsoft Access says \"Unrecognized database format\" for an .accdb or .mdb file, the version mismatches behind it, and how to get the data out anyway.","url":"https://phakeoa.github.io/accesslens/unrecognized-database-format.html","datePublished":"2026-09-10","dateModified":"2026-09-10","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"“Unrecognized database format” — what it means and how to fix it","description":"Why Microsoft Access says \"Unrecognized database format\" for an .accdb or .mdb file, the version mismatches behind it, and how to get the data out anyway.","url":"https://phakeoa.github.io/accesslens/unrecognized-database-format.html","datePublished":"2026-09-10","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I open an .accdb in Access 2003?","acceptedAnswer":{"@type":"Answer","text":"No. Access 2003 predates the .accdb format. Either open the file in Access 2007 or later, or read it with a viewer that parses the format directly, such as AccessLens."}},{"@type":"Question","name":"Does \"Unrecognized database format\" mean my file is corrupt?","acceptedAnswer":{"@type":"Answer","text":"Usually not. Most cases are a version mismatch: the file uses a newer format or data type than the installed Access. Corruption is the third most common cause, after that and opening an .accdb in a pre-2007 Access."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
@@ -67,12 +67,13 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
           <li><strong>Match the version.</strong> Open the file on a machine with a current Microsoft 365 Access. If it opens there, the file is fine and your copy is simply older than the file.</li>
           <li><strong>Compact &amp; Repair a copy.</strong> Copy the file first. In Access, open a blank database, then <em>Database Tools → Compact and Repair Database</em> and pick the copy. This rebuilds the structure and rescues most interrupted-write damage.</li>
           <li><strong>Restore a backup.</strong> If Compact &amp; Repair also fails, the file is genuinely damaged; a backup from before the incident is the only complete fix.</li>
-          <li><strong>Just read the data.</strong> If the goal is the records rather than the application, you do not need a compatible Access at all. AccessLens reads the file format directly — every era from Access 97 to 2019, including Large Number columns — in a Chrome tab on your own machine, and exports any table to CSV. It cannot repair a truly corrupt file (it reads the same bytes), but it is not affected by version mismatches.</li>
+          <li><strong>Just read the data.</strong> If the goal is the records rather than the application, you do not need a compatible Access at all. AccessLens reads the file format directly — every era from Access 97 to 2019, including Large Number columns — in a Chrome tab on your own machine, and exports any table to CSV, or the whole database to Excel or SQLite. It cannot repair a truly corrupt file (it reads the same bytes), but it is not affected by version mismatches.</li>
         </ol>
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=unrecognized-database-format&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -107,7 +108,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=unrecognized-database-format&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>

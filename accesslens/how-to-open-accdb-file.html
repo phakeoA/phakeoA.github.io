@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/how-to-open-accdb-file.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"ACCDB file: what it is and how to open one","description":"An .accdb file is a Microsoft Access 2007+ database. How to open one with or without Access, on Windows, Mac or Chromebook, password-protected files included.","url":"https://phakeoa.github.io/accesslens/how-to-open-accdb-file.html","datePublished":"2026-09-26","dateModified":"2026-09-26","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"ACCDB file: what it is and how to open one","description":"An .accdb file is a Microsoft Access 2007+ database. How to open one with or without Access, on Windows, Mac or Chromebook, password-protected files included.","url":"https://phakeoa.github.io/accesslens/how-to-open-accdb-file.html","datePublished":"2026-09-26","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I open an .accdb file without Access?","acceptedAnswer":{"@type":"Answer","text":"Yes. AccessLens, a free Chrome extension, opens .accdb files in a browser tab without Access and without uploading the file. On Windows, Excel can also import the tables if the Access Database Engine is installed."}},{"@type":"Question","name":"Is .accdb the same as .mdb?","acceptedAnswer":{"@type":"Answer","text":"No. .accdb is the Access 2007 and later format; .mdb is the format of Access 2003 and earlier. Access 2007 and later open both, but Access 2003 and earlier cannot open .accdb files."}},{"@type":"Question","name":"How do I open a password-protected .accdb?","acceptedAnswer":{"@type":"Answer","text":"Enter the password when Access or AccessLens asks for it. The file is encrypted, so the password is needed to read it; AccessLens uses it locally and never stores it."}},{"@type":"Question","name":"Can an .accdb file contain a virus?","acceptedAnswer":{"@type":"Answer","text":"It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
@@ -61,7 +61,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
           <li><strong>Mac:</strong> there is no Access for Mac (<a href="open-accdb-on-mac.html">what works instead</a>).</li>
           <li><strong>Chromebook:</strong> <a href="open-accdb-on-chromebook.html">what works</a>.</li>
           <li><strong>Linux:</strong> mdbtools reads many <code>.accdb</code> files, but its support for the newer format is partial.</li>
-          <li><strong>In Chrome on any of these computers:</strong> AccessLens opens <code>.accdb</code> files from Access 2007 to 2019 in a browser tab. Browse every table, search it, export it to CSV, without uploading the file. Attachment and multi-valued columns show as marked placeholders.</li>
+          <li><strong>In Chrome on any of these computers:</strong> AccessLens opens <code>.accdb</code> files from Access 2007 to 2019 in a browser tab. Browse and search every table and export to CSV, Excel or SQLite, without uploading the file. Attachment and multi-valued columns show as marked placeholders and are left out of exports.</li>
         </ul>
 
   <h2>Password-protected .accdb files</h2>
@@ -70,10 +70,11 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
         RC4 and Office Agile encryption, uses the password on your machine and never stores it. AccessLens
         does not recover or bypass passwords.</p>
 
-  <h2>Converting .accdb to .mdb, Excel or CSV</h2>
+  <h2>Converting .accdb to .mdb, Excel, CSV or SQLite</h2>
 <ul>
           <li><strong>To .mdb</strong>, for an older system: in Access, <em>File → Save As → Access 2002-2003 Database</em>. This fails if the database uses <code>.accdb</code>-only features such as attachments or multi-valued fields.</li>
-          <li><strong>To Excel or CSV</strong>, one table at a time: from Access (<em>External Data → Export → Excel</em>), with Excel's <em>Get Data</em> import, or with AccessLens (<em>Export → CSV</em>), which needs no Access at all.</li>
+          <li><strong>To Excel or CSV:</strong> from Access (<em>External Data → Export → Excel</em>, one table at a time), with Excel's <em>Get Data</em> import, or with AccessLens, which needs no Access at all: <em>Export → This table → CSV</em> for one table, or <em>Export → All tables → Excel workbook</em> for every table in one file.</li>
+          <li><strong>To SQLite:</strong> AccessLens's <em>Export → Whole database → SQLite</em> (or <em>SQL script</em>) turns the tables into a SQLite database, or a script that builds one, which SQL tools open anywhere.</li>
         </ul>
 
   <h2>Files that travel with an .accdb</h2>
@@ -85,7 +86,8 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-accdb-file&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -128,7 +130,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-accdb-file&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>

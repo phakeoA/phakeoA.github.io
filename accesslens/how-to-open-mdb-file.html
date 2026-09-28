@@ -14,8 +14,8 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/how-to-open-mdb-file.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MDB file: what it is and how to open one","description":"An .mdb file is a Microsoft Access database. How to open one on Windows, Mac, Chromebook or Linux, with or without Access, and get the tables into Excel.","url":"https://phakeoa.github.io/accesslens/how-to-open-mdb-file.html","datePublished":"2026-09-26","dateModified":"2026-09-26","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What program opens an .mdb file?","acceptedAnswer":{"@type":"Answer","text":"Microsoft Access, on Windows. Without Access: Excel can import the tables on Windows if the Access Database Engine is installed, mdbtools reads them on Mac and Linux, and AccessLens opens them in a Chrome tab on your own computer without uploading them."}},{"@type":"Question","name":"What is the difference between .mdb and .accdb?","acceptedAnswer":{"@type":"Answer","text":".mdb is the database format of Access 2003 and earlier. .accdb has been the default since Access 2007 and adds features such as attachments, multi-valued fields and stronger encryption. Access 2007 and later open both, except Access 97 .mdb files, which need Access 2010 or earlier."}},{"@type":"Question","name":"Can I convert an .mdb file to Excel?","acceptedAnswer":{"@type":"Answer","text":"Yes, one table at a time. Export each table to CSV with AccessLens or mdbtools, or import it with Excel's Get Data → From Microsoft Access Database on Windows."}},{"@type":"Question","name":"Can an .mdb file contain a virus?","acceptedAnswer":{"@type":"Answer","text":"It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MDB file: what it is and how to open one","description":"An .mdb file is a Microsoft Access database. How to open one on Windows, Mac, Chromebook or Linux, with or without Access, and get the tables into Excel.","url":"https://phakeoa.github.io/accesslens/how-to-open-mdb-file.html","datePublished":"2026-09-26","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What program opens an .mdb file?","acceptedAnswer":{"@type":"Answer","text":"Microsoft Access, on Windows. Without Access: Excel can import the tables on Windows if the Access Database Engine is installed, mdbtools reads them on Mac and Linux, and AccessLens opens them in a Chrome tab on your own computer without uploading them."}},{"@type":"Question","name":"What is the difference between .mdb and .accdb?","acceptedAnswer":{"@type":"Answer","text":".mdb is the database format of Access 2003 and earlier. .accdb has been the default since Access 2007 and adds features such as attachments, multi-valued fields and stronger encryption. Access 2007 and later open both, except Access 97 .mdb files, which need Access 2010 or earlier."}},{"@type":"Question","name":"Can I convert an .mdb file to Excel?","acceptedAnswer":{"@type":"Answer","text":"Yes. AccessLens exports the whole database to one Excel workbook with a sheet per table (free for databases of up to 20 tables and 50,000 rows), and any single table to CSV at any size. mdbtools exports one table at a time, and on Windows, Excel's Get Data → From Microsoft Access Database imports the tables if the Access Database Engine is installed."}},{"@type":"Question","name":"Can an .mdb file contain a virus?","acceptedAnswer":{"@type":"Answer","text":"It can contain macros and VBA code, which Access runs only if you enable content. A viewer that only reads the tables, such as AccessLens, never runs anything inside the file."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
 @media (prefers-color-scheme:dark){:root{--bg:#12150f;--bg-soft:#181c15;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a;--accent-fg:#10150f;--accent-soft:#1f2a20}}
@@ -61,15 +61,19 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
           <li><strong>Mac:</strong> there has never been an Access for Mac. The options are a Chrome extension, mdbtools from Homebrew on the command line, or Windows in a virtual machine (<a href="open-accdb-on-mac.html">details</a>).</li>
           <li><strong>Chromebook:</strong> a Chrome extension, or mdbtools under Linux (<a href="open-accdb-on-chromebook.html">details</a>).</li>
           <li><strong>Linux:</strong> mdbtools, packaged by most distributions: <code>mdb-tables file.mdb</code> lists the tables, <code>mdb-export file.mdb TableName &gt; table.csv</code> exports one.</li>
-          <li><strong>In Chrome on any of these computers:</strong> AccessLens opens <code>.mdb</code> files from Access 97 to 2003 (and <code>.accdb</code> files from 2007 to 2019) in a browser tab. Browse every table, search it, export it to CSV. Nothing is uploaded.</li>
+          <li><strong>In Chrome on any of these computers:</strong> AccessLens opens <code>.mdb</code> files from Access 97 to 2003 (and <code>.accdb</code> files from 2007 to 2019) in a browser tab. Browse and search every table, and export a table to CSV or the whole database to Excel, SQLite or a SQL script. Nothing is uploaded.</li>
         </ul>
         <p>Microsoft Access has no phone or tablet version, so open the file on a computer.</p>
 
   <h2>Getting the tables into Excel or Google Sheets</h2>
-<p>An Access database holds many tables, and a spreadsheet holds one per sheet, so the move is
-        always table by table. Use Excel's import on Windows (it needs the Access Database Engine), run
-        <code>mdb-export</code>, or open the file in AccessLens, pick a table and use <em>Export → CSV</em>.
-        A CSV opens directly in Excel, Numbers and Google Sheets.</p>
+<p>An Access database holds many tables, and a spreadsheet holds one table per sheet. Excel's
+        import on Windows (it needs the Access Database Engine) and <code>mdb-export</code> both move one
+        table at a time. AccessLens does either: pick a table and use <em>Export → This table → CSV</em>,
+        or use <em>Export → All tables → Excel workbook</em> to get every table in one <code>.xlsx</code>
+        file, one sheet per table. Excel, Numbers and Google Sheets open both.</p>
+        <p>Exporting all tables at once is free for databases of up to 20 tables and 50,000 rows in total;
+        bigger databases need the optional one-time Pro licence for it. Exporting one table to CSV is free
+        at any size.</p>
 
   <h2>Before you upload it to an online viewer</h2>
 <p>Online MDB viewers come in two kinds. Some upload the file to their server and convert it there,
@@ -91,7 +95,8 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse every table, search it, export to CSV. It requests no permissions, so the file cannot leave your computer — and it is free.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-mdb-file&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
   </div>
@@ -107,7 +112,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   </details>
   <details>
     <summary>Can I convert an .mdb file to Excel?</summary>
-    <p>Yes, one table at a time. Export each table to CSV with AccessLens or mdbtools, or import it with Excel's Get Data → From Microsoft Access Database on Windows.</p>
+    <p>Yes. AccessLens exports the whole database to one Excel workbook with a sheet per table (free for databases of up to 20 tables and 50,000 rows), and any single table to CSV at any size. mdbtools exports one table at a time, and on Windows, Excel's Get Data → From Microsoft Access Database imports the tables if the Access Database Engine is installed.</p>
   </details>
   <details>
     <summary>Can an .mdb file contain a virus?</summary>
@@ -134,7 +139,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <div class="wrap">
     <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=how-to-open-mdb-file&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-26 · Updated 2026-09-28.</p>
   </div>
 </footer>
 </body>
