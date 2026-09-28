@@ -38,6 +38,12 @@ details p{margin:8px 0 2px 20px}
 nav.more{border-top:1px solid var(--line);padding:26px 0}nav.more h2{font-size:17px;margin:0 0 8px}nav.more ul{margin:0;padding-left:20px}nav.more li{margin:5px 0}
 footer.site{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--fg-faint);font-size:14px}footer.site a{color:var(--fg-soft)}footer.site p{margin:0 0 6px}
 blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);background:var(--bg-soft);border-radius:0 var(--radius) var(--radius) 0}blockquote p{margin:0;color:var(--fg)}
+.tablewrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;min-width:640px;border-collapse:collapse;font-size:14.5px;line-height:1.5}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}th{background:var(--bg-soft);color:var(--fg);font-weight:600}td{color:var(--fg-soft)}td:first-child{color:var(--fg);font-weight:600}
+th:first-child,td:first-child{position:sticky;left:0;z-index:1}th:first-child{background:var(--bg-soft)}td:first-child{background:var(--bg)}
+p.note{font-size:14px;color:var(--fg-faint)}
 </style>
 </head>
 <body>
@@ -75,7 +81,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
 
   <div class="cta-box">
     <h2>Just need the tables out of the file?</h2>
-    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It requests no permissions, so the file cannot leave your computer.</p>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It contains no network code and requests no permissions, so the file stays on your computer.</p>
     <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-access-database-without-admin-rights&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
@@ -97,6 +103,7 @@ blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);b
   <ul>
       <li><a href="how-to-open-mdb-file.html">MDB file: what it is and how to open one</a></li>
       <li><a href="how-to-open-accdb-file.html">ACCDB file: what it is and how to open one</a></li>
+      <li><a href="mdb-viewer.html">MDB viewers compared: every way to open an .mdb or .accdb file</a></li>
       <li><a href="unrecognized-database-format.html">“Unrecognized database format” — what it means and how to fix it</a></li>
       <li><a href="cannot-open-database-created-with-previous-version.html">“Cannot open a database created with a previous version of your application”</a></li>
       <li><a href="open-accdb-on-mac.html">How to open an .accdb or .mdb file on a Mac</a></li>

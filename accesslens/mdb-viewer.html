@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDB viewer: every way to open .mdb and .accdb files, compared</title>
+<meta name="description" content="MDB and ACCDB viewers side by side: Access, MDB Viewer Plus, Mac apps, mdbtools, DBeaver, online viewers. What each costs, and which upload your file.">
+<link rel="canonical" href="https://phakeoa.github.io/accesslens/mdb-viewer.html">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3f6b47">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MDB viewer: every way to open .mdb and .accdb files, compared">
+<meta property="og:description" content="MDB and ACCDB viewers side by side: Access, MDB Viewer Plus, Mac apps, mdbtools, DBeaver, online viewers. What each costs, and which upload your file.">
+<meta property="og:url" content="https://phakeoa.github.io/accesslens/mdb-viewer.html">
+<meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
+<link rel="icon" type="image/png" href="assets/icon128.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MDB viewers compared: every way to open an .mdb or .accdb file","description":"MDB and ACCDB viewers side by side: Access, MDB Viewer Plus, Mac apps, mdbtools, DBeaver, online viewers. What each costs, and which upload your file.","url":"https://phakeoa.github.io/accesslens/mdb-viewer.html","datePublished":"2026-09-28","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best free MDB viewer?","acceptedAnswer":{"@type":"Answer","text":"It depends on the computer. On Windows, MDB Viewer Plus is free and portable, though .accdb files need Microsoft's Access Database Engine. On Linux and Mac, mdbtools (command line) and DBeaver Community (desktop) are free. On any computer with Chrome, AccessLens is free for browsing, searching and CSV export, without uploading the file."}},{"@type":"Question","name":"Is there an MDB viewer for Mac?","acceptedAnswer":{"@type":"Answer","text":"Yes. Microsoft Access does not run on macOS, but Mac App Store apps such as MDB ACCDB Viewer ($18.99) read .mdb and .accdb files, mdbtools and DBeaver are free, and browser-based viewers such as AccessLens work in Chrome on a Mac."}},{"@type":"Question","name":"Are online MDB viewers safe for confidential files?","acceptedAnswer":{"@type":"Answer","text":"Only the ones that read the file inside your browser. Some sites upload the database to their server; mdbopener.com, for example, keeps uploaded files for 30 minutes. For client, HR, financial or medical data, use a desktop program or a viewer that does not upload the file."}},{"@type":"Question","name":"Can I open a password-protected .accdb without Access?","acceptedAnswer":{"@type":"Answer","text":"Yes, with a tool that implements Access encryption, and only if you know the password. DBConvert's online viewer and AccessLens say they do; the Egger Apps Mac viewer and mdb-viewer.com say they do not."}}]}</script>
+<style>
+:root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
+@media (prefers-color-scheme:dark){:root{--bg:#12150f;--bg-soft:#181c15;--fg:#eef2ea;--fg-soft:#b6c0b5;--fg-faint:#8d998c;--line:#2c3429;--accent:#8fc79a;--accent-fg:#10150f;--accent-soft:#1f2a20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}a{color:var(--accent)}code{font-size:.93em}
+header.site{border-bottom:1px solid var(--line)}header.site .wrap{display:flex;align-items:center;gap:10px;padding:14px 20px}
+header.site img{width:28px;height:28px;border-radius:6px}header.site b{font-size:15px}header.site .sp{flex:1}header.site a.top{font-size:14px;text-decoration:none;color:var(--fg-soft)}
+article{padding:40px 0 20px}h1{font-size:clamp(26px,4.5vw,36px);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--fg-soft);margin:0 0 28px}h2{font-size:22px;margin:34px 0 10px;letter-spacing:-.01em}
+p,li{color:var(--fg-soft)}ol,ul{padding-left:22px}li{margin:8px 0}li strong,p strong{color:var(--fg)}
+.cta-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:36px 0}
+.cta-box h2{margin:0 0 8px;font-size:20px}.cta-box p{margin:0 0 14px}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:600;padding:12px 24px;border-radius:var(--radius)}
+.cta-sub{display:block;margin-top:10px;font-size:14px;color:var(--fg-faint)}
+details{border-bottom:1px solid var(--line);padding:12px 0}details:last-of-type{border-bottom:none}
+summary{cursor:pointer;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:20px;color:var(--accent);font-weight:700}details[open] summary::before{content:"\2212"}
+details p{margin:8px 0 2px 20px}
+nav.more{border-top:1px solid var(--line);padding:26px 0}nav.more h2{font-size:17px;margin:0 0 8px}nav.more ul{margin:0;padding-left:20px}nav.more li{margin:5px 0}
+footer.site{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--fg-faint);font-size:14px}footer.site a{color:var(--fg-soft)}footer.site p{margin:0 0 6px}
+blockquote{margin:14px 0;padding:12px 18px;border-left:3px solid var(--accent);background:var(--bg-soft);border-radius:0 var(--radius) var(--radius) 0}blockquote p{margin:0;color:var(--fg)}
+.tablewrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;min-width:640px;border-collapse:collapse;font-size:14.5px;line-height:1.5}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}th{background:var(--bg-soft);color:var(--fg);font-weight:600}td{color:var(--fg-soft)}td:first-child{color:var(--fg);font-weight:600}
+th:first-child,td:first-child{position:sticky;left:0;z-index:1}th:first-child{background:var(--bg-soft)}td:first-child{background:var(--bg)}
+p.note{font-size:14px;color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <img src="assets/icon128.png" alt="">
+    <b>AccessLens</b>
+    <span class="sp"></span>
+    <a class="top" href="./">Home</a>
+  </div>
+</header>
+<main>
+<div class="wrap">
+<article>
+  <h1>MDB viewers compared: every way to open an .mdb or .accdb file</h1>
+  <p class="lede">An MDB viewer is anything that lets you read the tables in a Microsoft Access database without Access itself. There are more than a dozen, and they differ in three things that usually decide it: which computer they run on, what they cost, and whether your file leaves your computer. This page is written by the maker of AccessLens, one of the options below, so every other product's details come from its own website or store listing, checked on 28 September 2026.</p>
+  <h2>The short answer</h2>
+<ul>
+          <li><strong>Windows with Microsoft 365:</strong> check whether your plan includes Access (Personal, Family, Apps for business, Business Standard and Business Premium do). If it does, use it.</li>
+          <li><strong>Windows, free desktop program:</strong> MDB Viewer Plus. It is portable, but <code>.accdb</code> files need Microsoft's Access Database Engine installed.</li>
+          <li><strong>Mac:</strong> a Mac App Store viewer such as MDB ACCDB Viewer ($18.99), or one of the browser-based options.</li>
+          <li><strong>Linux, or scripting on a Mac:</strong> mdbtools, free on the command line.</li>
+          <li><strong>SQL queries, or editing the data:</strong> DBeaver Community with its UCanAccess driver, free on Windows, Mac and Linux.</li>
+          <li><strong>A work laptop you cannot install on, a Chromebook, or a confidential file:</strong> something that runs in the browser without uploading the file, such as AccessLens.</li>
+          <li><strong>Confidential data:</strong> avoid any website that uploads the file to its server.</li>
+        </ul>
+
+  <h2>Side by side</h2>
+<div class="tablewrap"><table>
+          <thead><tr><th>Option</th><th>Runs on</th><th>Cost</th><th>Does the file leave your computer?</th><th>Password-protected .accdb</th><th>Exports</th></tr></thead>
+          <tbody>
+            <tr><td>Microsoft Access</td><td>Windows</td><td>Microsoft 365 plans, or a retail licence</td><td>No</td><td>Yes</td><td>Excel, CSV and more</td></tr>
+            <tr><td>MDB Viewer Plus</td><td>Windows (portable)</td><td>Free</td><td>No</td><td>Password tools listed; details not stated</td><td>Excel, SQLite, PDF, HTML, XML, text and more</td></tr>
+            <tr><td>Data Exporter for Access</td><td>Windows 10/11, 64-bit (Microsoft Store)</td><td>Paid, with a free trial</td><td>No (works offline, per the vendor)</td><td>Not stated</td><td>CSV, Excel, Parquet</td></tr>
+            <tr><td>MDB ACCDB Viewer (Egger Apps)</td><td>Mac</td><td>$18.99</td><td>No</td><td>No, per its documentation</td><td>Excel, CSV, SQLite, SQL</td></tr>
+            <tr><td>mdbtools</td><td>Linux, Mac (command line)</td><td>Free, open source</td><td>No</td><td>Not documented</td><td>CSV, JSON, SQL schema</td></tr>
+            <tr><td>DBeaver Community + UCanAccess</td><td>Windows, Mac, Linux</td><td>Free, open source</td><td>No</td><td>Only with extra setup</td><td>CSV, SQL and more</td></tr>
+            <tr><td>mdbopener.com</td><td>Any browser</td><td>No charge (ads, donations)</td><td>Yes: uploaded, kept 30 minutes, 25 MB limit</td><td>Not stated</td><td>Excel, CSV</td></tr>
+            <tr><td>RebaseData</td><td>Any browser, or an API</td><td>Free up to 10 MB; $89 for 7 days or $79 a month</td><td>Yes: uploaded for conversion</td><td>Not stated</td><td>CSV (a ZIP, one file per table)</td></tr>
+            <tr><td>mdb-viewer.com</td><td>Any browser</td><td>Free (may show ads)</td><td>No, per the site</td><td>No</td><td>CSV</td></tr>
+            <tr><td>DBConvert MDB/ACCDB Viewer</td><td>Any browser</td><td>Free to view; full exports need PRO ($9 a month)</td><td>No, per the site</td><td>Yes</td><td>CSV, JSON, Parquet (first 10,000 rows free)</td></tr>
+            <tr><td>MDB ACCDB Viewer and Reader (Google Drive app)</td><td>Browser, Google Drive</td><td>Free, ad-supported</td><td>Not stated by the vendor</td><td>Not stated</td><td>SQLite, CSV</td></tr>
+            <tr><td>AccessLens</td><td>Chrome, Edge and other Chromium browsers</td><td>Free; optional one-time Pro ($5.99) for whole-database export of large databases</td><td>No: it has no network code and requests no permissions</td><td>Yes (Access 2010 RC4 and Office Agile)</td><td>CSV, Excel, SQLite, SQL</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">As stated on each product's own website or store listing on 28 September 2026. "Per the site" marks a claim we could not test ourselves. Prices and versions change; if a row is out of date, the contact address is on the AccessLens store listing.</p>
+
+  <h2>Microsoft's own options</h2>
+<ul>
+          <li><strong>Microsoft Access</strong> runs on Windows only and comes with Microsoft 365 Personal, Family, Apps for business, Business Standard and Business Premium, or as a retail licence. Access 2013 and later cannot open Access 97 files directly; those need an older Access first (<a href="cannot-open-database-created-with-previous-version.html">details</a>).</li>
+          <li><strong>Microsoft 365 Access Runtime</strong> is free, but it exists to run finished Access applications: all design tools are removed, and it is not a table browser. Installing it needs administrator approval.</li>
+          <li><strong>Excel</strong> on Windows imports Access tables through <em>Data → Get Data → From Database → From Microsoft Access Database</em>, if the Access database provider is installed. Without it, or with the wrong 32/64-bit version, Excel reports <em>The 'Microsoft.ACE.OLEDB.12.0' provider is not registered</em>.</li>
+          <li><strong>The Access Database Engine 2016 Redistributable</strong>, the usual fix for that error, is still downloadable, but Microsoft ended its support on 14 October 2025 and points to the Access Runtime instead. It cannot be installed next to an Office of the other bitness.</li>
+        </ul>
+
+  <h2>Desktop viewers for Windows and Mac</h2>
+<ul>
+          <li><strong>MDB Viewer Plus</strong> (Windows, free) is portable and still maintained: version 2.79 came out in June 2026. It exports to many formats and can also edit, so work on a copy if the file matters. For <code>.accdb</code> files it needs the Access Database Engine unless Access 2007 or later is installed.</li>
+          <li><strong>Data Exporter for Access</strong> (Windows 10/11, 64-bit, Microsoft Store) reads <code>.mdb</code> and <code>.accdb</code> without Access. The Store lists a free trial; the vendor's site sells a one-time licence. Its optional AI features use an online service with your own API key.</li>
+          <li><strong>MDB ACCDB Viewer by Egger Apps</strong> (Mac, $18.99) is read-only and opens Access 97 to 2013 files. It opens password-protected <code>.mdb</code> files without asking for the password, but cannot open encrypted <code>.accdb</code> files. Last updated in December 2024.</li>
+          <li><strong>Other Mac App Store viewers:</strong> <em>Viewer for Access Database</em> ($14.99, editing and other features as in-app purchases, last updated November 2023) and <em>Access MDB Viewer</em> (free, with a $4.99 Pro upgrade; needs macOS 14).</li>
+          <li><strong>The real Access on a Mac</strong> means Windows in a virtual machine: Microsoft lists Parallels Desktop 18 to 20 for Windows 11 on Apple M1 to M3 Macs, plus a Windows and a Microsoft 365 licence.</li>
+        </ul>
+
+  <h2>Free tools for any operating system</h2>
+<ul>
+          <li><strong>mdbtools</strong> is open source and command-line only: <code>brew install mdbtools</code> on a Mac, <code>apt install mdbtools</code> on Debian or Ubuntu. <code>mdb-tables</code> lists the tables and <code>mdb-export</code> writes one to CSV. Version 1.0.1 (December 2024) reads files up to Access 2019; its handling of encrypted files is not documented.</li>
+          <li><strong>DBeaver Community</strong> opens <code>.mdb</code> and <code>.accdb</code> through the UCanAccess driver on Windows, Mac and Linux, with Java bundled. It is a full database tool: SQL queries, and editing, so it can change your file. Access 97 files are read-only, and encrypted files need extra driver setup.</li>
+          <li><strong>LibreOffice Base</strong> connects to Access files on Windows through its Microsoft Access connection. On Mac and Linux it needs the UCanAccess driver added by hand.</li>
+        </ul>
+
+  <h2>Online viewers: uploaded, or read in your browser</h2>
+<p>Websites that open Access files work in one of two ways, and the difference matters for anything confidential.</p>
+        <ul>
+          <li><strong>Upload to a server.</strong> mdbopener.com uploads the file, keeps it for 30 minutes and accepts up to 25 MB. RebaseData converts uploaded files, free up to 10 MB. Neither is suitable for client, HR, financial or medical records.</li>
+          <li><strong>Read in the browser tab.</strong> mdb-viewer.com and DBConvert's MDB/ACCDB Viewer say the file is parsed in your browser and not uploaded. mdb-viewer.com does not open password-protected databases; DBConvert's viewer does, and asks for PRO to export more than 10,000 rows.</li>
+          <li><strong>Google Drive apps.</strong> <em>MDB ACCDB Viewer and Reader</em> opens files from Drive and asks for Drive and account permissions. Its listing does not say whether files are processed on its server.</li>
+        </ul>
+        <p>A website's “we don't upload” is a statement you can check: open the browser's developer tools, switch to the Network tab and watch what happens when you open the file.</p>
+
+  <h2>Where AccessLens fits</h2>
+<p>AccessLens is a Chrome extension that reads <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019) in a browser tab. It contains no network code, which every release build is checked for, and it requests no permissions, so installing it on a managed work laptop is usually a single approval (<a href="extension-blocked-by-administrator.html">what IT checks</a>). It opens password-protected <code>.accdb</code> files if you have the password, browses and searches every table, shows the schema and relationships, and exports to CSV, Excel, SQLite or a SQL script.</p>
+        <p>What it does not do: it is read-only, it shows tables and data but not forms, reports, queries or VBA, it has no SQL console, and it needs Chrome or another Chromium browser. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs the optional one-time Pro licence.</p>
+
+  <div class="cta-box">
+    <h2>Just need the tables out of the file?</h2>
+    <p>AccessLens opens <code>.mdb</code> and <code>.accdb</code> files (Access 97 to 2019, password-protected included) in a Chrome tab on your own machine. Browse and search any table, and export to CSV, Excel or SQLite. It contains no network code and requests no permissions, so the file stays on your computer.</p>
+    <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=mdb-viewer&amp;utm_content=cta">Add to Chrome — free</a>
+    <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
+  </div>
+
+  <h2>Questions</h2>
+  <details open>
+    <summary>What is the best free MDB viewer?</summary>
+    <p>It depends on the computer. On Windows, MDB Viewer Plus is free and portable, though .accdb files need Microsoft's Access Database Engine. On Linux and Mac, mdbtools (command line) and DBeaver Community (desktop) are free. On any computer with Chrome, AccessLens is free for browsing, searching and CSV export, without uploading the file.</p>
+  </details>
+  <details>
+    <summary>Is there an MDB viewer for Mac?</summary>
+    <p>Yes. Microsoft Access does not run on macOS, but Mac App Store apps such as MDB ACCDB Viewer ($18.99) read .mdb and .accdb files, mdbtools and DBeaver are free, and browser-based viewers such as AccessLens work in Chrome on a Mac.</p>
+  </details>
+  <details>
+    <summary>Are online MDB viewers safe for confidential files?</summary>
+    <p>Only the ones that read the file inside your browser. Some sites upload the database to their server; mdbopener.com, for example, keeps uploaded files for 30 minutes. For client, HR, financial or medical data, use a desktop program or a viewer that does not upload the file.</p>
+  </details>
+  <details>
+    <summary>Can I open a password-protected .accdb without Access?</summary>
+    <p>Yes, with a tool that implements Access encryption, and only if you know the password. DBConvert's online viewer and AccessLens say they do; the Egger Apps Mac viewer and mdb-viewer.com say they do not.</p>
+  </details>
+</article>
+
+<nav class="more">
+  <h2>Related guides</h2>
+  <ul>
+      <li><a href="how-to-open-mdb-file.html">MDB file: what it is and how to open one</a></li>
+      <li><a href="how-to-open-accdb-file.html">ACCDB file: what it is and how to open one</a></li>
+      <li><a href="unrecognized-database-format.html">“Unrecognized database format” — what it means and how to fix it</a></li>
+      <li><a href="cannot-open-database-created-with-previous-version.html">“Cannot open a database created with a previous version of your application”</a></li>
+      <li><a href="open-accdb-on-mac.html">How to open an .accdb or .mdb file on a Mac</a></li>
+      <li><a href="open-accdb-on-chromebook.html">How to open an .accdb or .mdb file on a Chromebook</a></li>
+      <li><a href="open-access-database-without-admin-rights.html">Open an Access database on a locked-down work computer — no admin rights, no install</a></li>
+      <li><a href="extension-blocked-by-administrator.html">Extension blocked by your administrator: getting AccessLens approved at work</a></li>
+      <li><a href="./">AccessLens — open MDB &amp; ACCDB files without Microsoft Access</a></li>
+  </ul>
+</nav>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=mdb-viewer&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
+    <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-28.</p>
+  </div>
+</footer>
+</body>
+</html>
