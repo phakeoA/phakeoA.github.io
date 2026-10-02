@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://phakeoa.github.io/accesslens/open-accdb-on-mac.html">
 <meta property="og:image" content="https://phakeoa.github.io/accesslens/assets/screen1_browse.png">
 <link rel="icon" type="image/png" href="assets/icon128.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to open an .accdb or .mdb file on a Mac","description":"Access has never shipped for macOS. What works for opening an .accdb or .mdb on a Mac, from a Windows VM to a free extension that keeps the file local.","url":"https://phakeoa.github.io/accesslens/open-accdb-on-mac.html","datePublished":"2026-09-10","dateModified":"2026-09-28","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to open an .accdb or .mdb file on a Mac","description":"Access has never shipped for macOS. What works for opening an .accdb or .mdb on a Mac, from a Windows VM to a free extension that keeps the file local.","url":"https://phakeoa.github.io/accesslens/open-accdb-on-mac.html","datePublished":"2026-09-10","dateModified":"2026-10-02","author":{"@type":"Person","name":"Phakeo Arounerangsy"},"about":{"@type":"SoftwareApplication","name":"AccessLens — Access Database Viewer","url":"https://phakeoa.github.io/accesslens/","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there a Mac version of Microsoft Access?","acceptedAnswer":{"@type":"Answer","text":"No. Access has never been released for macOS and is not included in Microsoft 365 for Mac. Running it requires Windows, typically in a virtual machine."}},{"@type":"Question","name":"Can I open an .accdb on a Mac without uploading it anywhere?","acceptedAnswer":{"@type":"Answer","text":"Yes. AccessLens is a Chrome extension that parses the file locally in the browser. It requests no network permission, so the database never leaves the Mac."}}]}</script>
 <style>
 :root{--bg:#ffffff;--bg-soft:#f5f7f4;--fg:#161a17;--fg-soft:#4d574f;--fg-faint:#6d7970;--line:#dfe5e0;--accent:#3f6b47;--accent-fg:#ffffff;--accent-soft:#eaf1eb;--radius:12px}
@@ -65,12 +65,12 @@ p.note{font-size:14px;color:var(--fg-faint)}
           <li><strong>Windows in a virtual machine.</strong> Parallels, VMware Fusion or UTM plus a Windows licence plus a Microsoft 365 subscription. The only way to <em>run</em> the database as an application — forms, reports, VBA. Expensive and slow to set up if all you want is the data.</li>
           <li><strong>LibreOffice Base.</strong> Cannot open Access files on macOS: it needs an Access ODBC driver, and macOS does not ship one.</li>
           <li><strong>Online converters.</strong> Fast, but they work by uploading the database to someone else's server. That rules them out for anything confidential — client records, HR exports, anything under a contract.</li>
-          <li><strong>A viewer that parses the format directly.</strong> AccessLens is a Chrome extension that reads <code>.mdb</code> and <code>.accdb</code> files (Access 97 through 2019) inside a browser tab on the Mac. Browse and search every table, and export a table to CSV or the whole database to one Excel workbook for Numbers or Excel. It requests no permissions, so it has no way to send the file anywhere.</li>
+          <li><strong>A viewer that parses the format directly.</strong> AccessLens is a Chrome and Firefox extension that reads <code>.mdb</code> and <code>.accdb</code> files (Access 97 through 2019) inside a browser tab on the Mac. Browse and search every table, and export a table to CSV or the whole database to one Excel workbook for Numbers or Excel. It requests no permissions, so it has no way to send the file anywhere.</li>
         </ol>
 
   <h2>Step by step with AccessLens</h2>
 <ol>
-          <li>Install it from the Chrome Web Store (works in Chrome on macOS; Edge and Brave can install from the same store).</li>
+          <li>Install it from the Chrome Web Store (works in Chrome on macOS; Edge and Brave can install from the same store), or from <a href="https://addons.mozilla.org/firefox/addon/accesslens/?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-mac&amp;utm_content=step">Firefox Add-ons</a> in Firefox.</li>
           <li>Click the toolbar icon — the viewer opens in a tab.</li>
           <li>Drop the <code>.accdb</code> or <code>.mdb</code> onto the page, or click <em>Open</em>. Password-protected files prompt for the password, which stays on the machine.</li>
           <li>Pick a table, search it, and use <em>Export → This table → CSV</em>, or <em>Export → All tables → Excel workbook</em> to get every table in one file.</li>
@@ -82,6 +82,7 @@ p.note{font-size:14px;color:var(--fg-faint)}
     <p>Free: browsing, searching a table and exporting it to CSV, at any size. Exporting or searching every table at once is free up to 20 tables and 50,000 rows in total; above that it needs an optional one-time Pro licence.</p>
     <a class="cta" href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-mac&amp;utm_content=cta">Add to Chrome — free</a>
     <span class="cta-sub">No account. No upload. Read-only: it never changes your file.</span>
+    <span class="cta-sub">Using Firefox? <a href="https://addons.mozilla.org/firefox/addon/accesslens/?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-mac&amp;utm_content=cta">Get it from Firefox Add-ons</a>.</span>
   </div>
 
   <h2>Questions</h2>
@@ -113,9 +114,9 @@ p.note{font-size:14px;color:var(--fg-faint)}
 </main>
 <footer class="site">
   <div class="wrap">
-    <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-mac&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
+    <p><a href="./">Home</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="extension-blocked-by-administrator.html">For IT admins</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-mac&amp;utm_content=footer">Chrome Web Store</a> &nbsp;·&nbsp; <a href="https://addons.mozilla.org/firefox/addon/accesslens/?utm_source=accesslens_site&amp;utm_medium=referral&amp;utm_campaign=open-accdb-on-mac&amp;utm_content=footer">Firefox Add-ons</a> &nbsp;·&nbsp; <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml/reviews">Used it? Rate it</a></p>
     <p>AccessLens is an independent tool. Microsoft and Microsoft Access are trademarks of Microsoft Corporation; this project is not affiliated with or endorsed by Microsoft.</p>
-    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10 · Updated 2026-09-28.</p>
+    <p>This page loads no third-party scripts, no fonts and no trackers. Published 2026-09-10 · Updated 2026-10-02.</p>
   </div>
 </footer>
 </body>
