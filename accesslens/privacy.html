@@ -33,7 +33,7 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;font-si
 <div class="wrap">
 
 <h1>Privacy Policy</h1>
-<p class="updated">AccessLens (Chrome and Firefox extension) · Last updated 2 October 2026</p>
+<p class="updated">AccessLens (Chrome and Firefox extension, and the web version) · Last updated 23 November 2026</p>
 
 <div class="box">
   <p><strong>AccessLens collects nothing.</strong> No personal data, no usage data, no analytics,
@@ -74,9 +74,23 @@ footer{border-top:1px solid var(--line);margin-top:44px;padding-top:20px;font-si
   <li>If you activate AccessLens Pro: your licence key (with a checksum of it) and the time you activated it, so Pro stays
     switched on. The key is checked offline against a list built into the extension and is never
     sent anywhere.</li>
-  <li>Whether it has already asked you to rate it, so it does not ask again.</li>
+  <li>Whether it has already asked you to rate it, how many times, and on how many separate visits you have opened a
+    database with it, so it asks at most a few times and never again once you answer.</li>
 </ul>
 <p>Neither contains anything from your database files. Removing the extension deletes both.</p>
+
+<h2>The web version</h2>
+<p>
+  The <a href="app/">web version</a> is the same viewer served as a web page from GitHub Pages. Your
+  database file is read by code running in your browser tab and is never uploaded: the page contains
+  no code that sends data anywhere (every build is checked for it), and its security policy blocks
+  outbound connections from the page. Like any website, GitHub receives the usual request
+  information (such as your IP address) when your browser loads the page's own files, under
+  <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.
+  The page keeps the same kind of small settings as the extension in your browser's storage for
+  this site (a Pro key if you activate one, and whether it has suggested the extension); clearing
+  this site's data in your browser removes them.
+</p>
 
 <h2>Third parties</h2>
 <p>

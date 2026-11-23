@@ -1,0 +1,1 @@
+window.AL_WEB = { installUrl: 'https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_web&utm_medium=referral&utm_campaign=web_app', firefoxUrl: 'https://addons.mozilla.org/firefox/addon/accesslens/?utm_source=accesslens_web&utm_medium=referral&utm_campaign=web_app' };

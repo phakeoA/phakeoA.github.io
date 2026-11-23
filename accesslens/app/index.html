@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; font-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Open MDB and ACCDB Files Online, No Upload | AccessLens</title>
+  <meta name="description" content="Open .mdb and .accdb Access databases in your browser tab. Browse, search, export to CSV. The file is never uploaded: it stays on your computer.">
+  <link rel="canonical" href="https://phakeoa.github.io/accesslens/app/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AccessLens">
+  <meta property="og:title" content="Open MDB and ACCDB Files Online, No Upload | AccessLens">
+  <meta property="og:description" content="Open .mdb and .accdb Access databases in your browser tab. Browse, search, export to CSV. The file is never uploaded: it stays on your computer.">
+  <meta property="og:url" content="https://phakeoa.github.io/accesslens/app/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Open MDB and ACCDB Files Online, No Upload | AccessLens">
+  <meta name="twitter:description" content="Open .mdb and .accdb Access databases in your browser tab. Browse, search, export to CSV. The file is never uploaded: it stays on your computer.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AccessLens","url":"https://phakeoa.github.io/accesslens/app/","description":"Open, browse, search and export Microsoft Access .mdb and .accdb files in a browser tab. The file is read by code running in your browser and is never uploaded.","applicationCategory":"UtilitiesApplication","operatingSystem":"Windows, macOS, ChromeOS","browserRequirements":"A desktop browser with JavaScript and WebAssembly. Tested in Microsoft Edge and Mozilla Firefox.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <style>
+    #about-web { max-width: 46rem; margin: 1.5rem auto; padding: 0 1rem; line-height: 1.55; }
+    #about-web h2 { font-size: 1.05rem; margin: 0 0 .5rem; }
+    #about-web p { margin: 0 0 .6rem; }
+    #about-web a { color: var(--accent); text-underline-offset: 2px; }
+    #about-web a:hover, #about-web a:focus-visible { color: var(--ink); }
+    body:has(#main:not([hidden])) #about-web { display: none; }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="icons/icon16.png">
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>AccessLens</h1>
+      <span class="badge net" title="Nothing in this page sends data anywhere (checked at every build), and its security policy blocks outbound connections from the page. Your file never leaves this computer. You can check the Network tab.">⛔ zero network — file stays local</span>
+    </div>
+    <div class="actions">
+      <button id="btn-open" class="btn">Open .mdb / .accdb</button>
+      <input id="file-input" type="file" accept=".mdb,.accdb,.mde,.accde,.accdr" hidden>
+      <button id="btn-pro" class="btn ghost" hidden></button>
+      <details id="export" class="menu">
+        <summary class="btn ghost" id="btn-export">Export ▾</summary>
+        <div class="menu-items">
+          <button id="btn-csv" disabled>This table → CSV</button>
+          <button id="btn-zip" disabled>All tables → ZIP of CSV files <span class="pill">Pro</span></button>
+          <button id="btn-xlsx" disabled>All tables → Excel workbook (.xlsx) <span class="pill">Pro</span></button>
+          <button id="btn-sqlite" disabled>Whole database → SQLite (.sqlite) <span class="pill">Pro</span></button>
+          <button id="btn-sql" disabled>Whole database → SQL script (.sql) <span class="pill">Pro</span></button>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <div id="welcome" class="welcome" hidden>
+    <p><strong>AccessLens is installed.</strong> Drop a database below and you're done — nothing else to set up.</p>
+    <p class="sub">To find it again later: click the puzzle-piece icon <strong>🧩</strong> at the top-right of <span id="welcome-browser">Chrome</span>, then the <strong>pin</strong> beside AccessLens. That keeps it one click away in your toolbar.</p>
+    <button id="welcome-ok" class="btn ghost small" type="button">Got it</button>
+  </div>
+
+  <div id="openerr" class="openerr" hidden>
+    <p id="openerr-why"></p>
+    <div class="row">
+      <button id="openerr-close" class="btn ghost small" type="button">Try another file</button>
+      <a id="openerr-report" class="btn ghost small" href="#" title="Opens your email app with the error text and the file size — never the file itself">Report this file</a>
+    </div>
+  </div>
+
+  <div id="drop" class="drop">
+    <p><strong>Drop an Access database here</strong> — .mdb or .accdb — or use Open.</p>
+    <p class="sub">Everything happens inside this tab. No upload, no account, no size limit on viewing.</p>
+  </div>
+
+
+  <section id="about-web">
+    <h2>Open an Access database in your browser</h2>
+    <p>This page opens .mdb and .accdb files in this tab. The file is read by code running in your browser and is never uploaded: none of the page's code sends data anywhere (every build is checked for it), its security policy blocks outbound connections from the page, and you can watch the Network tab of the developer tools to confirm nothing leaves.</p>
+    <p>Browsing, searching and exporting a table to CSV are free. For one-click access from the toolbar, get the extension for <a href="https://chromewebstore.google.com/detail/ceilhkpcnofeomaibeldikllpgjolaml?utm_source=accesslens_web&amp;utm_medium=referral&amp;utm_campaign=web_app" rel="noopener">Chrome</a> or <a href="https://addons.mozilla.org/firefox/addon/accesslens/?utm_source=accesslens_web&amp;utm_medium=referral&amp;utm_campaign=web_app" rel="noopener">Firefox</a>, or read more on the <a href="../">AccessLens home page</a>.</p>
+  </section>
+
+  <main id="main" hidden>
+    <aside id="sidebar">
+      <div id="filemeta" class="filemeta"></div>
+      <ul id="tables"></ul>
+      <div class="sidefoot"><a id="side-link" href="#" target="_blank" rel="noopener" hidden></a></div>
+    </aside>
+    <section id="content">
+      <div class="toolbar">
+        <select id="scope" class="scope" disabled title="Search this table, or every table in the database">
+          <option value="table">This table</option>
+          <option value="all">All tables</option>
+        </select>
+        <input id="search" type="search" placeholder="Search this table… (Enter)" disabled>
+        <button id="btn-clear" class="btn ghost" hidden>Clear search</button>
+        <span id="tablemeta" class="tablemeta"></span>
+        <div id="progress" class="progress" hidden>
+          <span id="ptext"></span>
+          <progress id="pbar" max="100" value="0"></progress>
+          <button id="btn-cancel" class="btn ghost small" type="button">Cancel</button>
+        </div>
+        <span class="spacer"></span>
+        <button id="btn-schema" class="btn ghost" disabled title="Columns, types and relationships">Schema</button>
+      </div>
+      <div id="grid" class="grid">
+        <div id="gridinner">
+          <div id="ghead"></div>
+          <div id="gspacer"><div id="grows"></div></div>
+        </div>
+      </div>
+      <div id="results" class="results" hidden>
+        <h2 id="results-head"></h2>
+        <div id="results-list"></div>
+      </div>
+      <div id="schema" class="schema" hidden>
+        <div class="schema-cols">
+          <h2 id="schema-title"></h2>
+          <table id="schema-table">
+            <thead><tr><th>Column</th><th>Type</th><th>Size (bytes)</th><th>Nullable</th><th>Auto</th><th>Notes</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="schema-rels">
+          <h2>Relationships <span id="rel-count" class="tablemeta"></span></h2>
+          <ul id="rels"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="pwdlg">
+    <p>This database is password-protected.</p>
+    <input id="pw" type="password" placeholder="Password" autocomplete="off">
+    <div class="row"><button id="pw-cancel" type="button" class="btn ghost">Cancel</button><button id="pw-ok" type="button" class="btn">Open</button></div>
+    <p id="pw-err" class="err" hidden>Wrong password — try again.</p>
+  </dialog>
+
+  <dialog id="prodlg">
+    <h2 id="pro-title">Pro feature</h2>
+    <p id="pro-why"></p>
+    <p id="pro-work" class="fineprint" hidden></p>
+    <div class="row wrap">
+      <button id="pro-buy" type="button" class="btn">Get Pro</button>
+      <button id="pro-have" type="button" class="btn ghost">I have a key</button>
+      <button id="pro-close" type="button" class="btn ghost">Not now</button>
+    </div>
+    <div id="pro-keyrow" hidden>
+      <input id="pro-key" type="text" placeholder="Paste your licence key" autocomplete="off" spellcheck="false">
+      <div class="row"><button id="pro-activate" type="button" class="btn">Activate</button></div>
+      <p id="pro-err" class="err" hidden></p>
+      <p class="fineprint">Your key is checked on this device. Nothing is sent anywhere — not the key, not your database.</p>
+    </div>
+  </dialog>
+
+  <!-- One stack for everything that pops up at the bottom, so a long toast can never cover the card. -->
+  <div id="notices" class="notices">
+    <div id="rate" class="rate" hidden>
+      <span id="rate-text">Did AccessLens get your data out? A rating helps the next person find it.</span>
+      <button id="rate-go" class="btn small" type="button">Rate it on the Chrome Web Store</button>
+      <button id="rate-no" class="btn ghost small" type="button">No thanks</button>
+    </div>
+    <div id="toast" class="toast" hidden></div>
+  </div>
+
+  <script src="gate.js"></script>
+  <script src="license.js"></script>
+  <script src="web.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>
